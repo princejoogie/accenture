@@ -24,6 +24,10 @@ class FetchController extends Controller
         //connect to db
         $user = Auth::user();
 
+        if(empty($user->steps)) {
+            return '[""]';
+        }
+
         return $user->steps;
 
         // echo json_encode(

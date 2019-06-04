@@ -45,6 +45,7 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
+                        console.log(data);
                         if (data == '[""]') {
                             $("#index-content").html(
                                 '<h1>No Steps</h1>'

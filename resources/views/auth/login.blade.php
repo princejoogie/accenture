@@ -90,7 +90,7 @@
     <div class="sign-in" id="sign-in-info">
         <h1>Log in</h1>
         <form id="sign-in-form" method="POST" action="{{ route('login') }}">  
-          
+        @csrf
         <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             @error('email')
                 <span class="invalid-feedback" role="alert">
