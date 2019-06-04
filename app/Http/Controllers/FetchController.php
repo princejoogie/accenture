@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class FetchController extends Controller
 {
@@ -22,34 +23,50 @@ class FetchController extends Controller
     public function fetchSteps() {
 
         //connect to db
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if(empty($user->steps)) {
-            return '[""]';
-        }
+        // if(empty($user->steps)) {
+        //     return '[""]';
+        // }
 
-        return $user->steps;
+        //return $user->steps;
 
-        // echo json_encode(
-        //     [
-        //         "step_1" => [
-        //             "X-ray",
-        //             "description",
-        //             true
-        //         ],
-        //         "step_2" => [
-        //             "test_2",
-        //             "test_22",
-        //             false
-        //         ],
-        //         "step_3" => [
-        //             "title",
-        //             "test_22",
-        //             false
-        //         ]
-        //     ]
-        // );
+        echo json_encode(
+            [
+                "step_1" => [
+                    "X-ray",
+                    "description",
+                    true
+                ],
+                "step_2" => [
+                    "test_2",
+                    "test_22",
+                    false
+                ],
+                "step_3" => [
+                    "title",
+                    "test_22",
+                    false
+                ]
+            ]
+        );
     }
+
+    public function fetchUser() {
+        $id = $_GET['id'];
+
+        $users = User::WHERE('id', $id)->get();
+        echo \json_encode($users);
+    }
+
+    public function AddStep() {
+        $department = $_POST['department'];
+        $status = $_POST['status'];
+        $description = $_POST['description'];
+
+        echo $department." | ".$status." | ".$description;
+    }
+
 }
 
 // class Data {

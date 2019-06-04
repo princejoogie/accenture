@@ -83,35 +83,21 @@ $(document).ready(
                 $("#index-friends").addClass("active");
                 $("#index-message").removeClass("active");
                 $("#index-home").removeClass("active");
-                $("#index-content").html('\
+                
+              $("#index-content").html('\
+                <form action="/AddStep" method="post"> \
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">\
                 <label>Department:&nbsp;&nbsp;</label> \
-                <div class="ui compact menu"> \
-                <div class="ui simple dropdown item"> \
-                    <i class="dropdown icon"></i> \
-                    <div class="menu"> \
-                        <div class="item">X-Ray</div> \
-                        <div class="item">MRI</div> \
-                        <div class="item">Check Up</div> \
-                    </div> \
-                </div> \
-                </div> <br><br> \
+                <input type="text" name="department" />\
                 <label>Status:&nbsp;&nbsp;</label> \
-                <div class="ui compact menu"> \
-                <div class="ui simple dropdown item"> \
-                    <i class="dropdown icon"></i> \
-                    <div class="menu"> \
-                    <div class="item">Finished</div> \
-                    <div class="item">Pending</div> \
-                    </div> \
-                </div> \
-                </div> <br> <br>\
+                <input type="text" name="status" />\
                 <label>Description:</label> \
                 <div class="ui form"> \
                     <div class="field"> \
-                        <input type="text"> \
+                        <input type="text" name="description"> \
                     </div> \
                 </div> <br> \
-                <div><button class="ui button">Okay</button></div>'
+                <div><button type="submit" class="ui button">Okay</button></div>'
               );
             }
         );

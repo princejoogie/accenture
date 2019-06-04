@@ -12,7 +12,7 @@
                 <a href="#"><img class="logo" src="{{ asset('images/centrilinkLogo.svg') }}" alt=""></a>
             </div>
             <ul>
-                <li><a href="{{ url('/home') }}">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="">About us</a></li>
                 <li><a href="">FAQs</a></li>
                 <li><a href="">Mission and Vision</a></li>
@@ -23,7 +23,13 @@
                 <span class="heading-main">Centrilink</span>
                 <span class="heading-sub">live smart, live longer</span>
             </h1>
-            <a href="{{ route('login') }}" class="btn">Log In</a>
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ route('login') }}" class="btn">Home</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn">Log In</a>
+                @endauth
+            @endif
         </div>
     </header>
 </body>
