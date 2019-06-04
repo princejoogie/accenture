@@ -86,11 +86,19 @@ $(document).ready(
                 
               $("#index-content").html('\
                 <form action="/AddStep" method="post"> \
-                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">\
-                <label>Department:&nbsp;&nbsp;</label> \
-                <input type="text" name="department" />\
-                <label>Status:&nbsp;&nbsp;</label> \
-                <input type="text" name="status" />\
+                <p> Department: </p>\
+                <select name="department"> \
+                    <option value="MRI"> MRI </option>\
+                    <option value="xray"> X-Ray </option>\
+                    <option value="checkup"> Check-up </option>\
+                </select> \
+                <br> \
+                <select name="status"> \
+                    <option value="Finished"> Finished </option>\
+                    <option value="Pending"> Pending </option>\
+                    <option value="TBA"> TBA </option>\
+                </select> \
+                <br> \
                 <label>Description:</label> \
                 <div class="ui form"> \
                     <div class="field"> \

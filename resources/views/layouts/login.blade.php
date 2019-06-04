@@ -24,13 +24,21 @@
             left: 0;
             top: 0;
         }
+        
+        html {
+            background: linear-gradient(to right bottom, rgba(213, 23, 26, 0.6), rgba(180, 3, 0, 0.6));
+        }
+        
+        .form {
+            background: #fff;
+        }
     </style>
 
 </head>
 <body>
     <div id="app">
         <main class="py-4">
-        <i class="fas fa-arrow-left back-button"></i>
+        <a href="/"><i class="fas fa-arrow-left back-button"></i></a>
             <div class="container">
                 @yield('content')
             </div>
