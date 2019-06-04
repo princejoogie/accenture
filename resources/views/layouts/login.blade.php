@@ -16,12 +16,21 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
+    <style>
+        .back-button {
+            font-size: 50px;
+            padding: 1rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
 
 </head>
 <body>
     <div id="app">
         <main class="py-4">
+        <i class="fas fa-arrow-left back-button"></i>
             <div class="container">
                 @yield('content')
             </div>
