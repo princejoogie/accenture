@@ -1,0 +1,150 @@
+@import "https://fonts.googleapis.com/css?family=Lato|Open+Sans";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+.header {
+    width: 100%;
+    height: 95vh;
+    font-family: "Lato", Arial, sans-serif;
+    background: linear-gradient(to right bottom, rgba(213, 23, 26, 0.6), rgba(180, 3, 0, 0.6)), url('/images/bg.png') center no-repeat;
+    background-size: cover;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+}
+
+nav {
+    width: 80%;
+    height: 7rem;
+    line-height: 7rem;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    font-size: 1.4rem;
+    transform: translateX(-50%);
+    font-family: "Open Sans", Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.logo-box {
+    float: left;
+}
+
+.logo {
+    width: 7rem;
+    height: 7rem;
+    margin-right: 10rem;
+}
+
+nav ul {
+    list-style: none;
+    float: left;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    padding-bottom: .5rem;
+    border-bottom: .1rem solid #fff;
+    cursor: pointer;
+}
+
+.text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.primary-heading {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+}
+
+.heading-main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    margin-right: -3.5rem;
+    animation: moveLeft 1s ease-in;
+}
+
+.heading-sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    margin-right: -1.75rem;
+    animation: moveRight 1s ease-in;
+}
+
+.btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    font-size: 1.6rem;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    transition: all .2s;
+    animation: moveUp 1s ease-in;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
+@keyframes moveLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0)
+    }
+}
