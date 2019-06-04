@@ -18,6 +18,8 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
+                        $("#index-step").hide();
+                        $("#index-content").show();
                         $("#index-content").html(
                             "Name: <strong>"+user.name +"</strong>" +
                             "<br>" +
@@ -45,7 +47,8 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        console.log(data);
+                        $("#index-content").show();
+                        $("#index-step").hide();
                         if (data == '[""]') {
                             $("#index-content").html(
                                 '<h1>No Steps</h1>'
@@ -84,21 +87,8 @@ $(document).ready(
                 $("#index-message").removeClass("active");
                 $("#index-home").removeClass("active");
                 
-              $("#index-content").html('\
-                <form action="/AddStep" method="post"> \
-                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">\
-                <label>Department:&nbsp;&nbsp;</label> \
-                <input type="text" name="department" />\
-                <label>Status:&nbsp;&nbsp;</label> \
-                <input type="text" name="status" />\
-                <label>Description:</label> \
-                <div class="ui form"> \
-                    <div class="field"> \
-                        <input type="text" name="description"> \
-                    </div> \
-                </div> <br> \
-                <div><button type="submit" class="ui button">Okay</button></div>'
-              );
+              $("#index-content").hide();
+              $("#index-step").show();
             }
         );
     }
