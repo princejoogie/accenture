@@ -247,12 +247,21 @@
   
   .forgot-password{
     font-size: 12px;
-    display: inline-block;
     border-bottom: 2px solid #efebeb;
     padding-bottom: 3px;
+    color: black;
+    text-decoration: none;
   }
   
   .forgot-password:hover{
+    cursor: pointer;
+  }
+
+  .remember-me{
+    font-size: 14px;
+  }
+
+  .remember-me:hover{
     cursor: pointer;
   }
   
