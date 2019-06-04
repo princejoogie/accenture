@@ -1,3 +1,4 @@
+//Javascipt
 $(document).ready(
     function() {
         $("#index-home").click(
