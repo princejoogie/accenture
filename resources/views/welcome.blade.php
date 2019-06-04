@@ -12,10 +12,10 @@
                 <a href="#"><img class="logo" src="{{ asset('images/centrilinkLogo.svg') }}" alt=""></a>
             </div>
             <ul>
-                <li><a class="navtab" href="#">Home</a></li>
-                <li><a class="navtab" href="#">About us</a></li>
-                <li><a class="navtab" href="#">FAQs</a></li>
-                <li><a class="navtab" href="#">Mission and Vision</a></li>
+                <li><a href="{{ url('/home') }}">Home</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Mission and Vision</a></li>
             </ul>
         </nav>
         <div class="text-box">
@@ -23,7 +23,7 @@
                 <span class="heading-main">Centrilink</span>
                 <span class="heading-sub">live smart, live longer</span>
             </h1>
-            <a href="" class="btn">Log In</a>
+            <a href="{{ route('login') }}" class="btn">Log In</a>
         </div>
     </header>
 </body>
