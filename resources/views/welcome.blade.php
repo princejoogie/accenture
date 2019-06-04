@@ -23,7 +23,7 @@
                 <span class="heading-main">Centrilink</span>
                 <span class="heading-sub">live smart, live longer</span>
             </h1>
-            <a href="" class="btn">Log In</a>
+            <a href="{{ route('login') }}" class="btn">Log In</a>
         </div>
     </header>
 </body>
