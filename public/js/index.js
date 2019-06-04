@@ -18,6 +18,8 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
+                        $("#index-step").hide();
+                        $("#index-content").show();
                         $("#index-content").html(
                             "Name: <strong>"+user.name +"</strong>" +
                             "<br>" +
@@ -45,7 +47,8 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        console.log(data);
+                        $("#index-content").show();
+                        $("#index-step").hide();
                         if (data == '[""]') {
                             $("#index-content").html(
                                 '<h1>No Steps</h1>'
@@ -83,30 +86,8 @@ $(document).ready(
                 $("#index-friends").addClass("active");
                 $("#index-message").removeClass("active");
                 $("#index-home").removeClass("active");
-                
-              $("#index-content").html('\
-                <form action="/AddStep" method="post"> \
-                <p> Department: </p>\
-                <select name="department"> \
-                    <option value="MRI"> MRI </option>\
-                    <option value="xray"> X-Ray </option>\
-                    <option value="checkup"> Check-up </option>\
-                </select> \
-                <br> \
-                <select name="status"> \
-                    <option value="Finished"> Finished </option>\
-                    <option value="Pending"> Pending </option>\
-                    <option value="TBA"> TBA </option>\
-                </select> \
-                <br> \
-                <label>Description:</label> \
-                <div class="ui form"> \
-                    <div class="field"> \
-                        <input type="text" name="description"> \
-                    </div> \
-                </div> <br> \
-                <div><button type="submit" class="ui button">Okay</button></div>'
-              );
+                $("#index-content").hide();
+                $("#index-step").show();
             }
         );
     }
