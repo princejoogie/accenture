@@ -86,9 +86,8 @@ $(document).ready(
                 $("#index-friends").addClass("active");
                 $("#index-message").removeClass("active");
                 $("#index-home").removeClass("active");
-                
-              $("#index-content").hide();
-              $("#index-step").show();
+                $("#index-content").hide();
+                $("#index-step").show();
             }
         );
     }
