@@ -61,7 +61,7 @@ class FetchController extends Controller
         $id = $_GET['id'];
 
         $users = User::WHERE('id', $id)->get();
-        echo \json_encode($users);
+        echo json_encode($users);
     }
 
     public function AddStep() {
@@ -69,18 +69,24 @@ class FetchController extends Controller
         $status = $_POST['status'];
         $description = $_POST['description'];
 
-        if(strtolower($status) == "true") {
-            $status = true;
-        } else {
-            $status = false;
-        }
+        $status = strtolower($status) == "true" ? true : false;
 
         $steps = json_decode($this->fetchSteps());
-        $steps[] = [
-            $department,
-            $description,
-            $status
-        ];
+        if ($steps == json_decode('[""]')) {
+            $steps = [
+                [
+                    $department,
+                    $description,
+                    $status
+                ]
+            ];
+        } else {
+            $steps[] = [
+                $department,
+                $description,
+                $status
+            ];    
+        }
 
         User::where('id', Auth::id())->update(['steps' => json_encode($steps)]);
         return redirect()->action('HomeController@index');
