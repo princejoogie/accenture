@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Lato|Open+Sans";
+@import "https://fonts.googleapis.com/css?family=Montserrat&display=swap";
 
 * {
     margin: 0;
@@ -13,8 +13,8 @@ html {
 .header {
     width: 100%;
     height: 95vh;
-    font-family: "Lato", Arial, sans-serif;
-    background: linear-gradient(to right bottom, rgba(213, 23, 26, 0.6), rgba(180, 3, 0, 0.6)), url("../images/bg.png") center no-repeat;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right bottom, rgba(1, 79, 168, 0.6), rgba(219, 62, 56, 0.3)), url("../images/hospital.jpg") center no-repeat;
     background-size: cover;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
@@ -29,7 +29,7 @@ nav {
     left: 50%;
     font-size: 1.4rem;
     transform: translateX(-50%);
-    font-family: "Open Sans", Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
 }
 
@@ -111,6 +111,22 @@ nav ul li a:hover {
     animation: moveUp 1s ease-in;
 }
 
+.li1 {
+    animation: moveDown .25s ease-in;
+}
+
+.li2 {
+    animation: moveDown .5s ease-in;
+}
+
+.li3 {
+    animation: moveDown .5s ease-in;
+}
+
+.li4 {
+    animation: moveDown .5s ease-in;
+}
+
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
@@ -149,7 +165,7 @@ nav ul li a:hover {
     }
 }
 
-@keyframes moveUp {
+@keyframes moveDown {
     0% {
         opacity: 0;
         transform: translateY(-1rem);

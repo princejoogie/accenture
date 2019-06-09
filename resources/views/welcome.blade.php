@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/welcomestyle.css') }}">
 </head>
 <body>
@@ -12,10 +13,10 @@
                 <a href="#"><img class="logo" src="{{ asset('images/centrilinkLogo.svg') }}" alt=""></a>
             </div>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Mission and Vision</a></li>
+                <li class="li1"><a href="/">Home</a></li>
+                <li class="li2"><a href="">About us</a></li>
+                <li class="li3"><a href="">FAQs</a></li>
+                <li class="li4"><a href="">Mission and Vision</a></li>
             </ul>
         </nav>
         <div class="text-box">
@@ -30,8 +31,7 @@
                     <a href="{{ route('login') }}" class="btn">Log In</a>
                 @endauth
             @endif
-        </div>
-    </header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 
     <!-- <head>
