@@ -28,11 +28,11 @@
           <form action="/AddStep" method="post">
             {{ csrf_field() }}
             <label>Department:&nbsp;&nbsp;</label>
-            <input type="text" name="department" />
-            <br><label>Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" name="status" />
-            <br><label>Description:</label>
-            <input type="text" name="description" />
+              <input type="text" name="department" />
+                <br><label>Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="status" />
+                <br><label>Description:</label>
+              <input type="text" name="description" />
             <div><button type="submit" class="ui button">Okay</button></div>
           </form>
         </div>
