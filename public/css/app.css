@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import "https://fonts.googleapis.com/css?family=Montserrat&display=swap";
 
 @charset "UTF-8";
 
@@ -36,7 +36,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Montserrat", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 

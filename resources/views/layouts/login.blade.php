@@ -25,10 +25,6 @@
             top: 0;
         }
         
-        html {
-            background: linear-gradient(to right bottom, rgba(213, 23, 26, 0.6), rgba(180, 3, 0, 0.6));
-        }
-        
         .form {
             background: #fff;
         }

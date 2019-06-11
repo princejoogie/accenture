@@ -3,22 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/welcomestyle.css') }}">
+    <title>Welcome to Centrilink</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <nav>
-            <div class="logo-box">
-                <a href="#"><img class="logo" src="{{ asset('images/centrilinkLogo.svg') }}" alt=""></a>
-            </div>
-            <ul>
-                <li class="li1"><a href="/">Home</a></li>
-                <li class="li2"><a href="">About us</a></li>
-                <li class="li3"><a href="">FAQs</a></li>
-                <li class="li4"><a href="">Mission and Vision</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="container">
+            <nav>
+                <h1 class="logo"><a href=""><strong>Centri<span>link</span></strong></a></h1>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
         <div class="text-box">
             <h1 class="primary-heading">
                 <span class="heading-main">Centrilink</span>
@@ -31,8 +33,13 @@
                     <a href="{{ route('login') }}" class="btn">Log In</a>
                 @endauth
             @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        </div>
+    </header>
+    <footer>
+        
+    </footer>
 </body>
+</html>
 
     <!-- <head>
         <meta charset="utf-8">
