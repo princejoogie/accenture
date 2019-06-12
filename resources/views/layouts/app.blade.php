@@ -9,8 +9,12 @@
 
     <title>{{ config('app.name', 'Centrilink') }}</title>
 
+    <!-- Jquery Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,7 +27,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <!-- Semantic UI Library -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
+    <script src="{{ asset('js/semantic.min.js') }}"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" class="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <style>
+        .dropItem { width: 150px; height: 150px; padding: 0.5em; }
+    </style>
+
+    <script src="{{ asset('js/index.js') }}"></script>
 
 </head>
 <body>
@@ -79,19 +93,14 @@
             </div>
         </nav>
 
+
         <main class="py-4">
-            <div class="container">
+            <div id="mainField" class="container">
                 @yield('content')
             </div>
         </main>
     </div>
-
-    <!-- JQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-    <!-- Semantic UI -->
-    <script src="{{ asset('js/semantic.min.js') }}"></script>
     <!-- Custom JS -->
-    <script src="{{ asset('js/index.js') }}"></script>
 
 </body>
 </html>
