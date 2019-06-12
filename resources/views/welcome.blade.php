@@ -9,7 +9,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" class="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-
+    <script src="{{ asset('js/semantic.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/welcomestyle.css') }}">
     <title>Welcome to Centrilink</title>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>     -->
@@ -59,40 +61,73 @@
             @endif
         </div>
 
-
-        <div id="welcome-login" class="container col-sm-12 row-sm-6" style="display: none;">
-            <div class="ui placeholder segment">
-                <div class="ui two column very relaxed stackable grid">
-                    <div class="column">
-                    <div class="ui form">
-                        <div class="field">
-                        <label>Username</label>
-                        <div class="ui left icon input">
-                            <input type="text" placeholder="Username">
-                            <i class="user icon"></i>
-                        </div>
-                        </div>
-                        <div class="field">
-                        <label>Password</label>
-                        <div class="ui left icon input">
-                            <input type="password">
-                            <i class="lock icon"></i>
-                        </div>
-                        </div>
-                        <div class="ui blue submit button">Login</div>
-                    </div>
-                    </div>
-                    <div class="middle aligned column">
-                    <div class="ui big button">
-                        <i class="signup icon"></i>
-                        Sign Up
-                    </div>
-                    </div>
+        
+        <div class="cont" id="welcome-login"  style="display: none;">
+            <div class="overlay" id="overlay">
+                <div class="sign-in" id="sign-in">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="switch-button" id="slide-right-button">Sign In</button>
                 </div>
-                <div class="ui vertical divider">
-                    Or
+                <div class="sign-up" id="sign-up">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start a journey with us</p>
+                    <button class="switch-button" id="slide-left-button">Sign Up</button>
                 </div>
-                </div>
+            </div>
+        <div class="form">
+            <div class="sign-in" id="sign-in-info">
+                <h1>Log in</h1>
+                <form id="sign-in-form" method="POST" action="{{ route('login') }}">  
+                @csrf
+                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    @if (Route::has('password.request'))
+                        <br>
+                        <a class="forgot-password" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                    @endif
+                <button type="submit" class="control-button in">{{ __('Login') }}</button>
+            </form>
+            </div>
+            <div class="sign-up" id="sign-up-info">
+                <h1>{{ __('Register') }}</h1>
+                <form id="sign-up-form" method="POST" action="{{ route('register') }}">
+                @csrf
+                <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                <button class="control-button up">Sign Up</button>
+            </form>
+            </div>
+        </div>
         </div>
     </header>
 </body>
