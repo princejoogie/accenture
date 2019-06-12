@@ -90,5 +90,26 @@ $(document).ready(
                 $("#index-step").show();
             }
         );
+
+        $('#parentDropDown').on('click', function() {
+            $(this).children().toggle();
+        });
+
+        $('.dropItem').on('click', function() {
+            $("#parentText").parent().removeClass('default text');
+            $("#parentText").text($(this).text());
+        });
+
+        $('.dropItem').draggable({helper: 'clone'});
+
+        $('#DropZone').droppable(
+            {
+                accept: ".dropItem",
+                drop: function(ev, ui) {
+                    var droppedItem = $(ui.draggable).clone();
+                    $(this).append(droppedItem);
+                }
+            }
+        );
     }
 );   

@@ -91,4 +91,20 @@ class FetchController extends Controller
         User::where('id', Auth::id())->update(['steps' => json_encode($steps)]);
         return redirect()->action('HomeController@index');
     }
+
+    public function postSteps(Request $request) {
+    
+    }
+
+    public function getSteps($id) {
+        $steps = User::select('steps')->where('id', $id)->first();
+        return $steps;
+    }
+
+    public function deleteSteps($id) {
+        $steps = User::find($id);
+        $steps->steps = null;
+        $steps->save();
+        return response()->json(['message' => 'Steps Deleted'], 200);
+    }
 }
