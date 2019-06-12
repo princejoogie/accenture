@@ -3,14 +3,20 @@
 @section('content')
 
 <div class="ui secondary pointing menu">
-  <a class="item active" id="index-home">
-  <i class="fas fa-home logosize"></i>&nbsp;Profile
+  <!-- <a class="item" id="index-home"> -->
+  <a class="item" id="index-menu_profile">
+    <i class="fas fa-home logosize"></i>&nbsp;Profile
   </a>
-  <a class="item" id="index-message">
-  <i class="fas fa-comment-alt logosize"></i>&nbsp;Steps
+  <!-- <a class="item" id="index-message"> -->
+  <a class="item" id="index-menu_steps">
+    <i class="fas fa-comment-alt logosize"></i>&nbsp;Steps
   </a>
-  <a class="item" id="index-friends">
-  <i class="fas fa-users logosize"></i>&nbsp;Add Steps
+  <!-- <a class="item" id="index-friends"> -->
+  <a class="item" id="index-menu_addsteps">
+    <i class="fas fa-users logosize"></i>&nbsp;Add Steps
+  </a>
+  <a class="item" id="index-menu_records">
+  <i class="fas fa-file-medical"></i>&nbsp;Medical Records
   </a>
   <div class="right menu">
     <div class="item">
@@ -23,9 +29,11 @@
 </div>
 
 <div class="ui segment">
-  <p id="index-content"></p>
+  <div id="index-content" style="display: none;"></div>
 
-  <div id="index-step" style="display: none;">
+  <div id="index-steps" style="display: none;"></div>
+
+  <div id="index-addstep" style="display: none;">
 
 <!-- BETWEEN DITO CODE NG DRAG AND DROP -->
 

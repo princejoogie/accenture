@@ -3,14 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" class="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/welcomestyle.css') }}">
     <title>Welcome to Centrilink</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>     -->
+    
+    <style>
+    .addBlur {
+        filter: blur(4px);
+    }
+    </style>
+    
+    <script>
+        $(document).ready(function() {
+            $('#login-button').on('click', function() {
+                $('#welcome-login').fadeToggle(1000);
+                $('.welcomeNav').toggleClass('addBlur');
+            });
+        })
+    </script>
+
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container welcomeNav">
             <nav>
                 <h1 class="logo"><a href=""><strong>Centri<span>link</span></strong></a></h1>
                 <ul>
@@ -21,18 +43,56 @@
                 </ul>
             </nav>
         </div>
-        <div class="text-box">
+            
+        <div class="text-box welcomeNav">
             <h1 class="primary-heading">
-                <span class="heading-main">Centrilink</span>
+                <span class="heading-main">Centrilink</span><br>
                 <span class="heading-sub">live smart, live longer</span>
             </h1>
             @if (Route::has('login'))
                 @auth
                     <a href="{{ route('login') }}" class="btn">Home</a>
                 @else
-                    <a href="{{ route('login') }}" class="btn">Log In</a>
+                    <!-- <a id="login-button" href="{{ route('login') }}" class="btn">Log In</a> -->
+                    <a id="login-button" href="#" class="btn">Log In</a>
                 @endauth
             @endif
+        </div>
+
+
+        <div id="welcome-login" class="container col-sm-12 row-sm-6" style="display: none;">
+            <div class="ui placeholder segment">
+                <div class="ui two column very relaxed stackable grid">
+                    <div class="column">
+                    <div class="ui form">
+                        <div class="field">
+                        <label>Username</label>
+                        <div class="ui left icon input">
+                            <input type="text" placeholder="Username">
+                            <i class="user icon"></i>
+                        </div>
+                        </div>
+                        <div class="field">
+                        <label>Password</label>
+                        <div class="ui left icon input">
+                            <input type="password">
+                            <i class="lock icon"></i>
+                        </div>
+                        </div>
+                        <div class="ui blue submit button">Login</div>
+                    </div>
+                    </div>
+                    <div class="middle aligned column">
+                    <div class="ui big button">
+                        <i class="signup icon"></i>
+                        Sign Up
+                    </div>
+                    </div>
+                </div>
+                <div class="ui vertical divider">
+                    Or
+                </div>
+                </div>
         </div>
     </header>
 </body>

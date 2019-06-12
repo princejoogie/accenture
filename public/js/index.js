@@ -1,12 +1,12 @@
 //Javascipt
 $(document).ready(
     function() {
-        $("#index-home").click(
+        $("#index-menu_profile").click(
             function(e) {
                 e.preventDefault(); // will not switch page
-                $("#index-home").addClass("active");
-                $("#index-message").removeClass("active");
-                $("#index-friends").removeClass("active");
+                $("#index-menu_profile").addClass("active");
+                $("#index-menu_steps").removeClass("active");
+                $("#index-menu_addsteps").removeClass("active");
                 $("#index-content").html("");
                 $.ajax({
                     url : "/fetchData",
@@ -18,10 +18,9 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        $("#index-step").hide();
+                        $("#index-addstep").hide();
                         $("#index-content").show();
                         $("#index-content").html(
-                            '<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">' +
                             '<link href="{{ asset("css/addStep.css") }}" rel="stylesheet">' +
                             '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />' +
                             '<div class="container">' +
@@ -49,7 +48,7 @@ $(document).ready(
                                     '<div class="profile-usermenu">' +
                                     '<ul class="nav">' +
                                         '<li class="active">' +
-                                        '<a href="profile.html">' +
+                                        '<a href="#">' +
                                             '<i class="glyphicon glyphicon-home"></i>' +
                                             'Overview </a>' +
                                         '</li>' +
@@ -133,12 +132,12 @@ $(document).ready(
                 );
             }
         );
-        $("#index-message").click(
+        $("#index-menu_steps").click(
             function(e) {
                 e.preventDefault(); // will not switch page
-                $("#index-message").addClass("active");
-                $("#index-home").removeClass("active");
-                $("#index-friends").removeClass("active");
+                $("#index-menu_steps").addClass("active");
+                $("#index-menu_profile").removeClass("active");
+                $("#index-menu_addsteps").removeClass("active");
                 $("#index-content").html("");
 
                 $.ajax({
@@ -152,7 +151,7 @@ $(document).ready(
                     function(data) {
                         var user = JSON.parse(data);
                         $("#index-content").show();
-                        $("#index-step").hide();
+                        $("#index-addstep").hide();
                         if (data == '[""]') {
                             $("#index-content").html(
                                 '<h1>No Steps</h1>'
@@ -184,14 +183,14 @@ $(document).ready(
                 );
             }
         );
-        $("#index-friends").click(
+        $("#index-menu_addsteps").click(
             function(e) {
                 e.preventDefault(); // will not switch page
-                $("#index-friends").addClass("active");
-                $("#index-message").removeClass("active");
-                $("#index-home").removeClass("active");
+                $("#index-menu_addsteps").addClass("active");
+                $("#index-menu_steps").removeClass("active");
+                $("#index-menu_profile").removeClass("active");
                 $("#index-content").hide();
-                $("#index-step").show();
+                $("#index-addstep").show();
             }
         );
 
