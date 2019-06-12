@@ -27,6 +27,11 @@
                 $('#welcome-login').fadeToggle(1000);
                 $('.welcomeNav').toggleClass('addBlur');
             });
+
+            $("#close-login").on('click', function() {
+                $('#welcome-login').fadeOut(1000);
+                $('.welcomeNav').removeClass('addBlur');
+            })
         })
     </script>
 
@@ -104,7 +109,7 @@
 </head>
 <body>
     <header>
-        <div class="container welcomeNav">
+        <div id="close-login" class="container welcomeNav">
             <nav>
                 <h1 class="logo"><a href=""><strong>Centri<span>link</span></strong></a></h1>
                 <ul>
