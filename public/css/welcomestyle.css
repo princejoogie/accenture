@@ -191,6 +191,18 @@ footer {
     padding: 60px 0px;
 }
 /* ito yung simula ng css code ng log in style dot css */
+.back-button {
+  font-size: 50px;
+  padding: 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.form {
+  background: #fff;
+}
+
 .cont {
   width: var(--form-width);
   height: var(--form-height);
