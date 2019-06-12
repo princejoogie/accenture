@@ -34,7 +34,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 
     <style>
-        .dropItem { width: 150px; height: 150px; padding: 0.5em; }
+        .dropItem { 
+            padding: 0.5em; 
+            width: 120px;
+        }
     </style>
 
     <script src="{{ asset('js/index.js') }}"></script>
