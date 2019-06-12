@@ -190,7 +190,7 @@ footer {
     background-color: #222;
     padding: 60px 0px;
 }
-
+/* ito yung simula ng css code ng log in style dot css */
 .cont {
   width: var(--form-width);
   height: var(--form-height);
@@ -555,7 +555,9 @@ footer {
   100%{
     padding-left: 80px;
   }
-/* }
+}
+
+/* Ito yung css code ng log in style dot css */
 
 @keyframes moveLeft {
     0% {
@@ -577,5 +579,5 @@ footer {
         opacity: 1;
         transform: translate(0)
     }
-} */
+}
 
