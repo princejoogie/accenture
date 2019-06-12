@@ -203,6 +203,10 @@ $(document).ready(
             $("#parentText").text($(this).text());
         });
 
+        $('#navbarDropdown').on('click', function() {
+            $('#logoutDrop').toggle();
+        });
+
         $('.dropItem').draggable({helper: 'clone'});
         
         $('#DropZone').droppable(
