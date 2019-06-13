@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
@@ -28,10 +31,15 @@
                 $('.welcomeNav').toggleClass('addBlur');
             });
 
-            $("#close-login").on('click', function() {
+            // $("#close-login").on('click', function() {
+            //     $('#welcome-login').fadeOut(1000);
+            //     $('.welcomeNav').removeClass('addBlur');
+            // })
+
+            $('.close-popup').on('click', function() {
                 $('#welcome-login').fadeOut(1000);
                 $('.welcomeNav').removeClass('addBlur');
-            })
+            });
         })
     </script>
 
@@ -137,8 +145,20 @@
         </div>
 
         
-        <div class="cont" id="welcome-login"  style="display: none;">
+        <div class="cont" id="welcome-login"  style="display: none; margin-top: -2%;">
             <div class="overlay" id="overlay">
+                <div style="top: 0;
+                            right: 0;
+                            display: block;
+                            position: absolute;
+                            margin-top: 20px;
+                            margin-right: 20px;
+                            font-size: 20px;"
+                     class="close-popup"
+                >
+                    <i class="far fa-times-circle"></i>
+                </div>
+                
                 <div class="sign-in" id="sign-in">
                     <h1>Welcome Back!</h1>
                     <p>To keep connected with us please login with your personal info</p>
@@ -177,6 +197,17 @@
             </form>
             </div>
             <div class="sign-up" id="sign-up-info">
+                <div style="top: 0;
+                            right: 0;
+                            display: block;
+                            position: absolute;
+                            margin-top: 20px;
+                            margin-right: 20px;
+                            font-size: 20px;"
+                     class="close-popup"
+                >
+                    <i class="far fa-times-circle"></i>
+                </div>
                 <h1>{{ __('Register') }}</h1>
                 <form id="sign-up-form" method="POST" action="{{ route('register') }}">
                 @csrf
