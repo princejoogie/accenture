@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class FetchController extends Controller
@@ -25,11 +26,13 @@ class FetchController extends Controller
     public function fetchSteps() {
 
         //connect to db
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if(empty($user->steps)) {
-            return '[""]';
-        }
+        // if(empty($user->steps)) {
+        //     return '[""]';
+        // }
+
+        echo Hash::make("qweqweqwe");
 
 
         // echo json_encode(
@@ -52,9 +55,9 @@ class FetchController extends Controller
         //     ]
         // );
 
-        $prevStep = $user->steps;
+        // $prevStep = $user->steps;
 
-        return $prevStep;
+        // return $prevStep;
     }
 
     public function fetchUser() {
