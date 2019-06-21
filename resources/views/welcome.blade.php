@@ -7,13 +7,8 @@
     <!-- Font Awesome Library -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" class="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/welcomestyle.css') }}">
     <title>Welcome to Centrilink</title>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>     -->
@@ -24,6 +19,135 @@
     }
     </style>
     
+</head>
+<body>
+    <header>
+        <div id="close-login" class="container welcomeNav">
+            <nav>
+                <h1 class="logo"><a href=""><strong>Centri<span>link</span></strong></a></h1>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+            
+        <div class="text-box welcomeNav">
+            <h1 class="primary-heading">
+                <span class="heading-main">Centrilink</span><br>
+                <span class="heading-sub">live smart, live longer</span>
+            </h1>
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ route('login') }}" class="btn">Home</a>
+                @else
+                    <!-- <a id="login-button" href="{{ route('login') }}" class="btn">Log In</a> -->
+                    <a id="login-button" href="#" class="btn">Log In</a>
+                @endauth
+            @endif
+        </div>
+
+        
+        <div class="cont" id="welcome-login"  style="display: none; margin-top: -2%;">
+            <div class="overlay" id="overlay">
+                <div style="top: 0;
+                            right: 0;
+                            display: block;
+                            position: absolute;
+                            margin-top: 20px;
+                            margin-right: 20px;
+                            font-size: 20px;"
+                     class="close-popup"
+                >
+                    <i class="far fa-times-circle x"></i>
+                </div>
+                
+                <div class="sign-in" id="sign-in">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="switch-button" id="slide-right-button">Sign In</button>
+                </div>
+                <div class="sign-up" id="sign-up">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start a journey with us</p>
+                    <button class="switch-button" id="slide-left-button">Sign Up</button>
+                </div>
+            </div>
+        <div class="form">
+            <div class="sign-in" id="sign-in-info">
+                <h1>Log in</h1>
+                <form id="sign-in-form" method="POST" action="{{ route('login') }}">  
+                @csrf
+                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    @if (Route::has('password.request'))
+                        <br>
+                        <a class="forgot-password" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                    @endif
+                <button type="submit" class="control-button in">{{ __('Login') }}</button>
+            </form>
+            </div>
+            <div class="sign-up" id="sign-up-info">
+                <div style="top: 0;
+                            right: 0;
+                            display: block;
+                            position: absolute;
+                            margin-top: 20px;
+                            margin-right: 20px;
+                            font-size: 20px;"
+                     class="close-popup"
+                >
+                    <i class="far fa-times-circle x"></i>
+                </div>
+                <h1>{{ __('Register') }}</h1>
+                <form id="sign-up-form" method="POST" action="{{ route('register') }}">
+                @csrf
+                <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                <button class="control-button up">Sign Up</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#login-button').on('click', function() {
@@ -114,128 +238,6 @@
                     });
     </script>
 
-</head>
-<body>
-    <header>
-        <div id="close-login" class="container welcomeNav">
-            <nav>
-                <h1 class="logo"><a href=""><strong>Centri<span>link</span></strong></a></h1>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-            
-        <div class="text-box welcomeNav">
-            <h1 class="primary-heading">
-                <span class="heading-main">Centrilink</span><br>
-                <span class="heading-sub">live smart, live longer</span>
-            </h1>
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ route('login') }}" class="btn">Home</a>
-                @else
-                    <!-- <a id="login-button" href="{{ route('login') }}" class="btn">Log In</a> -->
-                    <a id="login-button" href="#" class="btn">Log In</a>
-                @endauth
-            @endif
-        </div>
-
-        
-        <div class="cont" id="welcome-login"  style="display: none; margin-top: -2%;">
-            <div class="overlay" id="overlay">
-                <div style="top: 0;
-                            right: 0;
-                            display: block;
-                            position: absolute;
-                            margin-top: 20px;
-                            margin-right: 20px;
-                            font-size: 20px;"
-                     class="close-popup"
-                >
-                    <i class="far fa-times-circle"></i>
-                </div>
-                
-                <div class="sign-in" id="sign-in">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="switch-button" id="slide-right-button">Sign In</button>
-                </div>
-                <div class="sign-up" id="sign-up">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start a journey with us</p>
-                    <button class="switch-button" id="slide-left-button">Sign Up</button>
-                </div>
-            </div>
-        <div class="form">
-            <div class="sign-in" id="sign-in-info">
-                <h1>Log in</h1>
-                <form id="sign-in-form" method="POST" action="{{ route('login') }}">  
-                @csrf
-                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    @if (Route::has('password.request'))
-                        <br>
-                        <a class="forgot-password" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
-                <button type="submit" class="control-button in">{{ __('Login') }}</button>
-            </form>
-            </div>
-            <div class="sign-up" id="sign-up-info">
-                <div style="top: 0;
-                            right: 0;
-                            display: block;
-                            position: absolute;
-                            margin-top: 20px;
-                            margin-right: 20px;
-                            font-size: 20px;"
-                     class="close-popup"
-                >
-                    <i class="far fa-times-circle"></i>
-                </div>
-                <h1>{{ __('Register') }}</h1>
-                <form id="sign-up-form" method="POST" action="{{ route('register') }}">
-                @csrf
-                <input id="name" placeholder="Name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <input id="password-confirm" placeholder="Confirm Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                <button class="control-button up">Sign Up</button>
-            </form>
-            </div>
-        </div>
-        </div>
-    </header>
 </body>
 </html>
 

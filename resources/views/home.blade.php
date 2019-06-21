@@ -2,16 +2,13 @@
 
 @section('content')
 
-<div class="ui secondary pointing menu">
-  <!-- <a class="item" id="index-home"> -->
+<!-- <div class="ui secondary pointing menu">
   <a class="item" id="index-menu_profile">
     <i class="fas fa-home logosize"></i>&nbsp;Profile
   </a>
-  <!-- <a class="item" id="index-message"> -->
   <a class="item" id="index-menu_steps">
     <i class="fas fa-comment-alt logosize"></i>&nbsp;Steps
   </a>
-  <!-- <a class="item" id="index-friends"> -->
   <a class="item" id="index-menu_addsteps">
     <i class="fas fa-users logosize"></i>&nbsp;Add Steps
   </a>
@@ -26,16 +23,148 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="ui grid">
+  <div class="three wide column">
+    <div class="ui vertical fluid tabular menu">
+      <a class="item" id="index-menu_profile">
+        Profile
+      </a>
+      <a class="item" id="index-menu_medicalRecords">
+        Medical Records
+      </a>
+    </div>
+  </div>
+  <div class="thirteen wide stretched column">
+    <div class="ui segment">
+      <div id="index-content" style="display: none;">
+
+        <div class="container">
+        <div class="row profile">
+            <div class="col-md-3">
+            <div class="profile-sidebar">
+                <div class="profile-img">
+                <img src="https://1.semantic-ui.com/images/avatar/large/elliot.jpg" alt="" />
+                <div class="file btn btn-lg btn-primary">
+                    'Change Photo
+                    <input type="file" name="file" />
+                </div>
+                </div>
+                <div class="profile-usertitle">
+                <div class="profile-usertitle-name" id="name">
+                    
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-9">
+            <div class="profile-content">
+                <div class="row">
+                <div class="col-md-12">
+                    <h4>Your Profile</h4>
+                    <br>
+                </div>
+                </div>
+                <table class="table table-user-information">
+                <tbody>
+                    <tr>
+                    <td>Allergy:</td>
+                    <td>None</td>
+                    </tr>
+                    <tr>
+                    <td>Blood Type:</td>
+                    <td>O+</td>
+                    </tr>
+                    <tr>
+                    <td>Date of Birth</td>
+                    <td>03/11/2009</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                    <td>Gender</td>
+                    <td>Male</td>
+                    </tr>
+                    <tr>
+                    <td>Home Address</td>
+                    <td>Makati City</td>
+                    </tr>
+                    <tr>
+                    <td id="email">Email</td>
+                    <td>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Phone Number</td>
+                    <td>237-4567-890(Landline)</td>
+                    </tr>
+                    <tr>
+                    <td>Occupation</td>
+                    <td>Chemist</td>
+                    </tr>
+                </tbody>
+                </table>
+
+                <table class="table table-user-information">
+                <tbody>
+                    <tr>
+                    <td>Allergy:</td>
+                    <td>None</td>
+                    </tr>
+                    <tr>
+                    <td>Blood Type:</td>
+                    <td>O+</td>
+                    </tr>
+                    <tr>
+                    <td>Date of Birth</td>
+                    <td>03/11/2009</td>
+                    </tr>
+                    <tr>
+                    <tr>
+                    <td>Gender</td>
+                    <td>Male</td>
+                    </tr>
+                    <tr>
+                    <td>Home Address</td>
+                    <td>Makati City</td>
+                    </tr>
+                    <tr>
+                    <td>Email</td>
+                    <td>
+                    
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Phone Number</td>
+                    <td>237-4567-890(Landline)</td>
+                    </tr>
+                    <tr>
+                    <td>Occupation</td>
+                    <td>Chemist</td>
+                    </tr>
+                </tbody>
+                </table>
+
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      </div>
+      <div id="index-medicalRecords" style="display: none;"></div>
+    </div>
+  </div>
 </div>
 
-<div class="ui segment">
+
+<!-- <div class="ui segment">
   <div id="index-content" style="display: none;"></div>
 
   <div id="index-steps" style="display: none;"></div>
 
   <div id="index-addstep" style="display: none;">
-
-<!-- BETWEEN DITO CODE NG DRAG AND DROP -->
 
     <div id="parentDropDown" class="ui fluid search selection dropdown">
       <input type="hidden" name="country">
@@ -47,7 +176,7 @@
         <div class="dropItem" data-value="al"><i class="heartbeat icon"></i>&nbsp;Cardiology</div>
         <div class="dropItem" data-value="dz"><i class="fas fa-tint"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blood Donation</div>
       </div>
-    </div>
+    </div> -->
     
     <!-- <div class="row">
       <div class="col-sm-2 dropItem"><i class="af flag"></i>Afghanistan</div>
@@ -63,7 +192,7 @@
     <div class="dropItem" data-value="dz"><i class="dz flag"></i>Algeria</div>
     </div> -->
     
-    <div id="DropZone" class="ui divider" style="overflow:hidden; height:350px;"><br><br>Put steps here:</div>
+    <!-- <div id="DropZone" class="ui divider" style="overflow:hidden; height:350px;"><br><br>Put steps here:</div> -->
 
 <!-- BETWEEN DITO CODE NG DRAG AND DROP -->
   
