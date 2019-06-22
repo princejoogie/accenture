@@ -67,6 +67,14 @@ class FetchController extends Controller
         echo json_encode($users);
     }
 
+    public function DoctorView() {
+        $id = $_GET['id'];
+        $data = User::find($id);
+        return view('doctor')->with(
+            'data', $data
+        );
+    }
+
     public function AddStep() {
         $department = $_POST['department'];
         $status = $_POST['status'];

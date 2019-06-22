@@ -11,15 +11,8 @@ body {
 }
 
 /* Profile container */
-.profile {
-    margin: 20px 0;
-}
 
 /* Profile sidebar */
-.profile-sidebar {
-    padding: 20px 0 10px 0;
-    background: #fff;
-}
 
 .profile-img{
     text-align: center;
@@ -54,7 +47,6 @@ body {
     color: #5a7391;
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 7px;
 }
 
 .profile-usertitle-job {
@@ -136,4 +128,8 @@ table>tbody>tr>td{
 table>tbody>tr:hover{
     background-color: #ececff;
     cursor: pointer;
+}
+
+.ss {
+    width: 50px;
 }
