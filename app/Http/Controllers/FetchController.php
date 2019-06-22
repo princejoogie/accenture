@@ -26,13 +26,13 @@ class FetchController extends Controller
     public function fetchSteps() {
 
         //connect to db
-        // $user = Auth::user();
+        $user = Auth::user();
 
-        // if(empty($user->steps)) {
-        //     return '[""]';
-        // }
+        if(empty($user->steps)) {
+            return '[""]';
+        }
 
-        echo Hash::make("qweqweqwe");
+        // echo Hash::make("qweqweqwe");
 
 
         // echo json_encode(
@@ -55,15 +55,15 @@ class FetchController extends Controller
         //     ]
         // );
 
-        // $prevStep = $user->steps;
+        $prevStep = $user->steps;
 
-        // return $prevStep;
+        return $prevStep;
     }
 
     public function fetchUser() {
         $id = $_GET['id'];
 
-        $users = User::WHERE('id', $id)->get();
+        $users = User::WHERE('cardid', $id)->get();
         echo json_encode($users);
     }
 
