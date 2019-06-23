@@ -39,7 +39,7 @@
   <div class="thirteen wide stretched column">
     <div class="ui segment">
       <div id="index-content" style="display: none;">
-
+        <!-- start of profile -->
         <div class="container">
         <div class="row profile">
             <div class="col-md-3">
@@ -47,7 +47,7 @@
                 <div class="profile-img">
                 <img src="https://1.semantic-ui.com/images/avatar/large/elliot.jpg" alt="" />
                 <div class="file btn btn-lg btn-primary">
-                    'Change Photo
+                    Change Photo
                     <input type="file" name="file" />
                 </div>
                 </div>
@@ -90,48 +90,8 @@
                     <td>Makati City</td>
                     </tr>
                     <tr>
-                    <td id="email">Email</td>
-                    <td>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td>Phone Number</td>
-                    <td>237-4567-890(Landline)</td>
-                    </tr>
-                    <tr>
-                    <td>Occupation</td>
-                    <td>Chemist</td>
-                    </tr>
-                </tbody>
-                </table>
-
-                <table class="table table-user-information">
-                <tbody>
-                    <tr>
-                    <td>Allergy:</td>
-                    <td>None</td>
-                    </tr>
-                    <tr>
-                    <td>Blood Type:</td>
-                    <td>O+</td>
-                    </tr>
-                    <tr>
-                    <td>Date of Birth</td>
-                    <td>03/11/2009</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                    <td>Gender</td>
-                    <td>Male</td>
-                    </tr>
-                    <tr>
-                    <td>Home Address</td>
-                    <td>Makati City</td>
-                    </tr>
-                    <tr>
                     <td>Email</td>
-                    <td>
-                    
+                    <td id="email">
                     </td>
                     </tr>
                     <tr>
@@ -144,19 +104,48 @@
                     </tr>
                 </tbody>
                 </table>
-
             </div>
             </div>
         </div>
         </div>
         </div>
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       </div>
-      <div id="index-medicalRecords" style="display: none;"></div>
+      <!-- end of profile -->
+      <div id="index-medicalRecords" style="display: none;">
+        <!-- start of medicalRecords -->
+        <form class="ui form">
+          <h4 class="ui dividing header">Shipping Information</h4>
+            <div class="field">
+              <label>Name</label>
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="shipping[first-name]" placeholder="First Name">
+                </div>
+                <div class="field">
+                  <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+          <div class="field">
+            <label>Billing Address</label>
+            <div class="fields">
+              <div class="twelve wide field">
+                <input type="text" name="shipping[address]" placeholder="Street Address">
+              </div>
+              <div class="four wide field">
+                <input type="text" name="shipping[address-2]" placeholder="Apt #">
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- end of medicalRecords -->
+      </div>
     </div>
   </div>
 </div>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 
 <!-- <div class="ui segment">

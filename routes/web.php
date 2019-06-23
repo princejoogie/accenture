@@ -23,3 +23,5 @@ Route::get('/fetchData', 'FetchController@fetchData');
 Route::get('/fetchUser', 'FetchController@fetchUser');
 Route::post('/AddStep', 'FetchController@AddStep');
 Route::get('/doctor', 'FetchController@DoctorView');
+Route::get('/fetchRecords', 'FetchController@fetchRecords');
+Route::get('/fetchProfile', 'FetchController@fetchProfile');
