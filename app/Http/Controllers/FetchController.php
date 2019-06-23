@@ -120,65 +120,83 @@ class FetchController extends Controller
     }
 
     public function fetchRecords() {
-        echo json_encode(
-            [
-                "pastMedicalHistory" => [
-                    "allergies" => [],
-                    "skinDisease" => "",
-                    "diabetes" => "",
-                    "hepatitis" => "",
-                    "hypertension" => "",
-                    "others" => ""
-                ],
+        $user = Auth::user();
+        echo $user->medicalRecords;
 
-                "familyHistory" => [
-                    "bronchialAsthma" => "",
-                    "hypertension" => "",
-                    "hypertension" => "",
-                    "tubercolosis" => "",
-                    "others" => ""
-                ],
+        // echo json_encode(
+        //     [
+        //         "pastMedicalHistory" => [
+        //             "allergies" => [
+        //                 "Milk",
+        //                 "Peanut 1",
+        //                 "Soy",
+        //                 'Mefenamic Acid',
+        //                 "Peanut 1",
+        //                 "Soy",
+        //                 'Mefenamic Acid'
+        //             ],
+        //             "skinDisease" => [
+        //                 "Warts",
+        //                 "Acne"
+        //             ],
+        //             "diabetes" => "None",
+        //             "hepatitis" => "None",
+        //             "hypertension" => "Present",
+        //             "others" => "None"
+        //         ],
 
-                "personalAndSocialHistory" => [
-                    "smoker" => [
-                        "sticksPerDay" => "",
-                        "packsPerYear" => ""
-                    ],
-                    "alcoholic" => "",
-                    "medications" => []
-                ],
+        //         "familyHistory" => [
+        //             "bronchialAsthma" => "None",
+        //             "hypertension" => "Present",
+        //             "tubercolosis" => "None",
+        //             "others" => "None"
+        //         ],
 
-                "hospitalizations" => "",
-                "operations" => '',
-                "reviewOfSystems" => [
-                    "skin" => "",
-                    "opthamologic" => "",
-                    "cardiovascular" => "",
-                    "respiratory" => "",
-                    "hematology" => "",
-                ]
-            ]
-        );
+        //         "personalAndSocialHistory" => [
+        //             "smoker" => [
+        //                 "sticksPerDay" => "5 sticks",
+        //                 "packsPerYear" => "73 packs"
+        //             ],
+        //             "alcoholic" => "Yes",
+        //             "medications" => [
+        //                 "none"
+        //             ]
+        //         ],
+
+        //         "hospitalizations" => "None",
+        //         "operations" => "None",
+        //         "reviewOfSystems" => [
+        //             "skin" => "Normal",
+        //             "opthamologic" => "Normal",
+        //             "cardiovascular" => "Weak",
+        //             "respiratory" => "Weak",
+        //             "hematology" => "Normal",
+        //         ]
+        //     ]
+        // );
     }
 
     public function fetchProfile() {
+
+        // $user = Auth::user();
+        // echo $user->profile;
         echo json_encode(
             [
                 "name" => [
-                    "lastName" => "",
-                    "firstName" => "",
-                    "middleName" => ""
+                    "lastName" => "Dela Cruz",
+                    "firstName" => "Juan",
+                    "middleName" => "Manda"
                 ],
-                "address" => "",
-                "phoneNumber" => "",
-                "birthdate" => "",
-                "age" => "",
-                "sex" => "",
-                "email" => "",
+                "address" => "123 Anywhere St., ",
+                "phoneNumber" => "09082279309",
+                "birthdate" => "June 29 1999",
+                "age" => "20",
+                "sex" => "Male",
+                "email" => "juan@gmail.com",
                 "emergencyContact" => [
-                    "name" => "",
-                    "relationship" => "",
-                    "phone" => "",
+                    "name" => "Maria",
+                    "relationship" => "Mother",
+                    "phone" => "09082279308",
                 ]
             ]
         );

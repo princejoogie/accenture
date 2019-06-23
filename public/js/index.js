@@ -9,15 +9,7 @@ $(document).ready(
             }
         );
 
-        var height = $(window).height();
-        $('.mr').css(
-            {
-                "overflow-y" : "auto",
-                "height" :(height - 140) + 'px'
-            }
-        );
-
-        $("#index-menu_profile").click(
+        $("#index-menu_profile").on("click",
             function(e) {
                 //debugger;
                 e.preventDefault(); // will not switch page
@@ -27,14 +19,14 @@ $(document).ready(
                     url : "/fetchData",
                     beforeSend : function() {
                         // $("#index-content").html(
-                        //     '<div class="ui active centered inline loader"></div>'
+                        //    '<div class="ui active centered inline loader"></div>'
                         // );
                     }
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        $("#index-addstep").show();
                         $("#index-content").show();
+                        $("#index-records").hide();
 
                         $("#name").html(user.name);
                         $("#email").html(user.email);
@@ -96,23 +88,40 @@ $(document).ready(
         //         );
         //     }
         // );
-        $("#index-menu_medicalRecords").click(
+        $("#index-menu_medicalRecords").on("click",
             function(e) {
                 e.preventDefault(); // will not switch page
                 $("#index-menu_medicalRecords").addClass("active");
                 $("#index-menu_profile").removeClass("active");
 
                 $.ajax({
-                    url : "/fetchRecords"
+                    url : "/fetchRecords",
+                    beforeSend : function() {
+                        // $("#index-content").html(
+                        //     '<div class="ui active centered inline loader"></div>'
+                        // );
+                    }
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        $("#index-addstep").show();
-                        $("#index-content").show();
+                        $("#index-records").show();
+                        $("#index-content").hide();
 
-                        $("#name").html(user.name);
-                        $("#email").html(user.email);
+                        str = "";
+                        $.each(user["pastMedicalHistory"], function(key, value) {
+                            //str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
+                            
+                            if (key == "allergies") {
+                                $.each(value, function(qwe) {
+                                    str += '<div class="thirteen wide field">';
+                                    str += '<input type="text" class="two" value='+ value[qwe] +'>';
+                                    str += '</div>';
+                                })
+                            }
+                            $("#allergies").html(str);
+                        });
 
+                        
                     }
                 );
             }
@@ -123,5 +132,6 @@ $(document).ready(
         });
         
         $("#index-menu_profile").trigger("click");
+        $("#index-menu_medicalRecord").trigger("click");
     }
 );   

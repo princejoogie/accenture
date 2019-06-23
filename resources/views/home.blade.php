@@ -107,19 +107,14 @@
       </div>
     </div>
       <!-- end of profile -->
-      <div id="index-mr" style="display: none;">
+      <div id="index-records" style="display: none;">
         <!-- start of medicalRecords -->
         <form class="ui form mr">
-          <h4 class="ui dividing header">Shipping Information</h4>
+          <h4 class="ui dividing header">A. Past Medical History</h4>
             <div class="field">
-              <label>Name</label>
-              <div class="two fields">
-                <div class="field">
-                  <input type="text" name="shipping[first-name]" placeholder="First Name">
-                </div>
-                <div class="field">
-                  <input type="text" name="shipping[last-name]" placeholder="Last Name">
-                </div>
+              <label>Allergies</label>
+              <div class="fields" id="allergies">
+                <!-- something here from js -->
               </div>
             </div>
           <div class="field">
@@ -145,9 +140,9 @@
 
 
 <!-- <div class="ui segment">
-  <div id="index-content" style="display: none;"></div>
+  <div id="index-content" style="display: none;">
 
-  <div id="index-steps" style="display: none;"></div>
+  <div id="index-steps" style="display: none;">
 
   <div id="index-addstep" style="display: none;">
 

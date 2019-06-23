@@ -130,6 +130,6 @@ table>tbody>tr:hover{
     cursor: pointer;
 }
 
-.ss {
-    width: 50px;
+.profile-usertitle-name {
+    text-align: center;
 }
