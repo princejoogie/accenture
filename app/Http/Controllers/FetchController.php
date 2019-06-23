@@ -21,43 +21,37 @@ class FetchController extends Controller
                 "email" => $user->email
             ]
         );
-    }
+    }   
 
     public function fetchSteps() {
 
         //connect to db
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if(empty($user->steps)) {
-            return '[""]';
-        }
+        // if(empty($user->steps)) {
+        //     return '[""]';
+        // }
 
         // echo Hash::make("qweqweqwe");
 
+        
+        $data = json_encode(
+            [
+                "past" => [
+                    'valOne' => [
+                        'valTwo' => "tangina"
+                    ]
+                ],
+                "present" => "tnainga"
+            ]
+        );
 
-        // echo json_encode(
-        //     [
-        //         [
-        //             "X-ray",
-        //             "description",
-        //             true
-        //         ],
-        //         [
-        //             "test_2",
-        //             "test_22",
-        //             false
-        //         ],
-        //         [
-        //             "title",
-        //             "test_22",
-        //             false
-        //         ]
-        //     ]
-        // );
+        // echo $data;
+        $record = json_decode($data, true);
+        dd($record);
+        // $prevStep = $user->steps;
 
-        $prevStep = $user->steps;
-
-        return $prevStep;
+        // return $prevStep;
     }
 
     public function fetchUser() {
