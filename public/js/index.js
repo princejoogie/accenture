@@ -25,8 +25,8 @@ $(document).ready(
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
-                        $("#index-addstep").toggle();
-                        $("#index-content").toggle();
+                        $("#index-addstep").show();
+                        $("#index-content").show();
 
                         $("#name").html(user.name);
                         $("#email").html(user.email);
@@ -41,6 +41,7 @@ $(document).ready(
                 $("#index-menu_steps").addClass("active");
                 $("#index-menu_profile").removeClass("active");
                 $("#index-menu_addsteps").removeClass("active");
+                $("#index-menu_medicalRecors").removeClass("active");
                 $("#index-content").html("");
 
                 $.ajax({
@@ -91,8 +92,20 @@ $(document).ready(
                 e.preventDefault(); // will not switch page
                 $("#index-menu_medicalRecords").addClass("active");
                 $("#index-menu_profile").removeClass("active");
-                $("#index-content").hide();
-                $("#index-addstep").show();
+
+                $.ajax({
+                    url : "/fetchRecords"
+                }).done(
+                    function(data) {
+                        var user = JSON.parse(data);
+                        $("#index-addstep").show();
+                        $("#index-content").show();
+
+                        $("#name").html(user.name);
+                        $("#email").html(user.email);
+
+                    }
+                );
             }
         );
 

@@ -118,4 +118,69 @@ class FetchController extends Controller
         $steps->save();
         return response()->json(['message' => 'Steps Deleted'], 200);
     }
+
+    public function fetchRecords() {
+        echo json_encode(
+            [
+                "pastMedicalHistory" => [
+                    "allergies" => [],
+                    "skinDisease" => "",
+                    "diabetes" => "",
+                    "hepatitis" => "",
+                    "hypertension" => "",
+                    "others" => ""
+                ],
+
+                "familyHistory" => [
+                    "bronchialAsthma" => "",
+                    "hypertension" => "",
+                    "hypertension" => "",
+                    "tubercolosis" => "",
+                    "others" => ""
+                ],
+
+                "personalAndSocialHistory" => [
+                    "smoker" => [
+                        "sticksPerDay" => "",
+                        "packsPerYear" => ""
+                    ],
+                    "alcoholic" => "",
+                    "medications" => []
+                ],
+
+                "hospitalizations" => "",
+                "operations" => '',
+                "reviewOfSystems" => [
+                    "skin" => "",
+                    "opthamologic" => "",
+                    "cardiovascular" => "",
+                    "respiratory" => "",
+                    "hematology" => "",
+                ]
+            ]
+        );
+    }
+
+    public function fetchProfile() {
+        echo json_encode(
+            [
+                "name" => [
+                    "lastName" => "",
+                    "firstName" => "",
+                    "middleName" => ""
+                ],
+                "address" => "",
+                "phoneNumber" => "",
+                "birthdate" => "",
+                "age" => "",
+                "sex" => "",
+                "email" => "",
+                "emergencyContact" => [
+                    "name" => "",
+                    "relationship" => "",
+                    "phone" => "",
+                ]
+            ]
+        );
+    }
 }
