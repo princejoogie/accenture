@@ -32,11 +32,12 @@ $(document).ready(
                         $("#email").html(user.email);
                         $("#bloodType").html(user.bloodType);
                         $("#phoneNumber").html(user.phoneNumber);
-                        // $("#firstName").html(user.name[1]);
                         document.getElementById('firstName').value = user.name.firstName;
                         document.getElementById('middleName').value = user.name.middleName;
                         document.getElementById('lastName').value = user.name.lastName;
-                        document.getElementById('datePicker').valueAsDate = new Date(user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear);
+                        document.getElementById('age').value = user.age;
+                        document.getElementById('address').value = user.address;
+                        document.getElementById('datePicker').value = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
                     }
                 );
             }
@@ -116,9 +117,10 @@ $(document).ready(
                         str = "";
                         $.each(user["pastMedicalHistory"], function(key, value) {
                             //str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
-                            
+                            console.log(key);
                             if (key == "allergies") {
                                 $.each(value, function(qwe) {
+                                    console.log(value[qwe]);
                                     str += '<div class="thirteen wide field">';
                                     str += '<input type="text" class="two" value='+ value[qwe] +'>';
                                     str += '</div>';
@@ -126,8 +128,7 @@ $(document).ready(
                             }
                             
                         });
-
-                        
+                        $("#allergies").html(str);
                     }
                 );
             }
@@ -140,6 +141,5 @@ $(document).ready(
         $("#index-menu_profile").trigger("click");
         $("#index-menu_medicalRecord").trigger("click");
 
-        $('#calendar').calendar();
     }
 );   

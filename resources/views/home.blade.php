@@ -80,18 +80,27 @@
                     <input type="text" id="lastName" placeholder="Last Name">
                   </div>
                 </div>
-                <div class="ui form" style="clear: both">
-                <h4 class="ui form header dividing h4">Birthdate</h4>
-                <h4 class="ui form header h3">Birthdate</h4>
-                  <div class="ui calendar" id="calendar">
-                    <div class="ui input left icon field">
-                      <i class="calendar icon"></i>
-                      <input type="date" id="datePicker">
-                    </div>
+              </div>
+
+              <div class="ui form">
+              <h4 class="ui dividing header">Age</h4>
+                <div class="fields">
+                  <div class="field">
+                    <input type="text" id="age" placeholder="Age">
                   </div>
                 </div>
               </div>
-            </table>
+
+              <div class="ui form">
+              <h4 class="ui dividing header">Birthdate</h4>
+                <div class="fields">
+                  <div class="field">
+                    <input type="text" id="datePicker" placeholder="mm/dd/yyyy">
+                  </div>
+                </div>
+              </div>
+
+            </table>  
             </div>
           </div>
         </div>
