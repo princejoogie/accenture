@@ -40,7 +40,7 @@
     <div class="ui segment">
       <div id="index-content" style="display: none;">
         <!-- start of profile -->
-        <div class="container">
+        <div id="startOfProfile" class="container">
         <div class="row profile">
             <div class="col-md-3">
             <div class="profile-sidebar">
@@ -111,9 +111,9 @@
         </div>
       </div>
       <!-- end of profile -->
-      <div id="index-medicalRecords" style="display: none;">
+      <div id="index-menu_medicalRecords" style="display: none;">
         <!-- start of medicalRecords -->
-        <form class="ui form">
+        <form id="startOfMedRec" class="ui form">
           <h4 class="ui dividing header">Shipping Information</h4>
             <div class="field">
               <label>Name</label>

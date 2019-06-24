@@ -117,39 +117,44 @@ class FetchController extends Controller
         echo json_encode(
             [
                 "pastMedicalHistory" => [
-                    "allergies" => [],
-                    "skinDisease" => "",
-                    "diabetes" => "",
-                    "hepatitis" => "",
-                    "hypertension" => "",
-                    "others" => ""
+                    "allergies" => [
+                        "hipon",
+                        "mefenamic acid",
+                        "viaTubon"
+                    ],
+                    "skinDisease" => "Amebiasis",
+                    "diabetes" => "B",
+                    "hepatitis" => "A",
+                    "hypertension" => "Yes",
+                    "others" => "Tanga"
                 ],
 
                 "familyHistory" => [
-                    "bronchialAsthma" => "",
-                    "hypertension" => "",
-                    "hypertension" => "",
-                    "tubercolosis" => "",
-                    "others" => ""
+                    "bronchialAsthma" => "No",
+                    "hypertension" => "Maybe",
+                    "tubercolosis" => "Soon",
+                    "others" => "Definitely"
                 ],
 
                 "personalAndSocialHistory" => [
                     "smoker" => [
-                        "sticksPerDay" => "",
-                        "packsPerYear" => ""
+                        "sticksPerDay" => "50",
+                        "packsPerYear" => "250"
                     ],
-                    "alcoholic" => "",
-                    "medications" => []
+                    "alcoholic" => "Yes",
+                    "medications" => [
+                        "Biogesic"
+                    ]
                 ],
 
-                "hospitalizations" => "",
-                "operations" => '',
+                "hospitalizations" => "qweqwe",
+                "operations" => "asdasdasd",
                 "reviewOfSystems" => [
-                    "skin" => "",
-                    "opthamologic" => "",
-                    "cardiovascular" => "",
-                    "respiratory" => "",
-                    "hematology" => "",
+                    "skin" => "qweqweqwe",
+                    "opthamologic" => "dfgdfgdfg",
+                    "cardiovascular" => "ccvbcvbcvb",
+                    "respiratory" => "rytutyuty",
+                    "hematology" => "bnmbnmbm",
                 ]
             ]
         );
@@ -159,22 +164,30 @@ class FetchController extends Controller
         echo json_encode(
             [
                 "name" => [
-                    "lastName" => "",
-                    "firstName" => "",
-                    "middleName" => ""
+                    "lastName" => "Juguilon",
+                    "firstName" => "Prince",
+                    "middleName" => "Carlo"
                 ],
-                "address" => "",
-                "phoneNumber" => "",
-                "birthdate" => "",
-                "age" => "",
-                "sex" => "",
-                "email" => "",
+                "address" => "A0A3DR8 Paoville, Taguig City, Philippines",
+                "phoneNumber" => "09457985711",
+                "birthdate" => [
+                    "birthMonth" => 9,
+                    "birthDay" => 3,
+                    "birthYear" => 1990
+                ],
+                "age" => "18",
+                "sex" => "Male",
+                "email" => "princejoogie@gmail.com",
                 "emergencyContact" => [
-                    "name" => "",
-                    "relationship" => "",
-                    "phone" => "",
+                    "name" => "Andre Tubon",
+                    "relationship" => "Driver",
+                    "phone" => "09876985711",
                 ]
             ]
         );
+
+        // print("<pre>");
+        // print_r(json_decode($bro));
+        // print("</pre>");
     }
 }
