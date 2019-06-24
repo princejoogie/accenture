@@ -100,7 +100,9 @@ $(document).ready(
                 e.preventDefault(); // will not switch page
                 $("#index-menu_medicalRecords").addClass("active");
                 $("#index-menu_profile").removeClass("active");
-
+                $("#startOfMedRec").show();
+                $("startOfProfile").hide();
+                
                 $.ajax({
                     url : "/fetchRecords",
                     beforeSend : function() {

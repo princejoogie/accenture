@@ -40,8 +40,13 @@
 
       <div id="index-content" style="display: none;">
         <!-- start of profile -->
+<<<<<<< HEAD
+        <div id="startOfProfile" class="container">
+        <div class="row profile">
+=======
         <div class="container">
           <div class="row profile">
+>>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
             <div class="col-md-3">
               <div class="profile-sidebar">
                 <div class="profile-img">
@@ -107,10 +112,17 @@
       </div>
     </div>
       <!-- end of profile -->
+<<<<<<< HEAD
+      <div id="index-menu_medicalRecords" style="display: none;">
+        <!-- start of medicalRecords -->
+        <form id="startOfMedRec" class="ui form">
+          <h4 class="ui dividing header">Shipping Information</h4>
+=======
       <div id="index-records" style="display: none;">
         <!-- start of medicalRecords -->
         <form class="ui form mr">
           <h4 class="ui dividing header">A. Past Medical History</h4>
+>>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
             <div class="field">
               <label>Allergies</label>
               <div class="fields" id="allergies">

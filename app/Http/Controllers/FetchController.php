@@ -21,43 +21,37 @@ class FetchController extends Controller
                 "email" => $user->email
             ]
         );
-    }
+    }   
 
     public function fetchSteps() {
 
         //connect to db
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if(empty($user->steps)) {
-            return '[""]';
-        }
+        // if(empty($user->steps)) {
+        //     return '[""]';
+        // }
 
         // echo Hash::make("qweqweqwe");
 
+        
+        $data = json_encode(
+            [
+                "past" => [
+                    'valOne' => [
+                        'valTwo' => "tangina"
+                    ]
+                ],
+                "present" => "tnainga"
+            ]
+        );
 
-        // echo json_encode(
-        //     [
-        //         [
-        //             "X-ray",
-        //             "description",
-        //             true
-        //         ],
-        //         [
-        //             "test_2",
-        //             "test_22",
-        //             false
-        //         ],
-        //         [
-        //             "title",
-        //             "test_22",
-        //             false
-        //         ]
-        //     ]
-        // );
+        // echo $data;
+        $record = json_decode($data, true);
+        dd($record);
+        // $prevStep = $user->steps;
 
-        $prevStep = $user->steps;
-
-        return $prevStep;
+        // return $prevStep;
     }
 
     public function fetchUser() {
@@ -120,6 +114,83 @@ class FetchController extends Controller
     }
 
     public function fetchRecords() {
+<<<<<<< HEAD
+        echo json_encode(
+            [
+                "pastMedicalHistory" => [
+                    "allergies" => [
+                        "hipon",
+                        "mefenamic acid",
+                        "viaTubon"
+                    ],
+                    "skinDisease" => "Amebiasis",
+                    "diabetes" => "B",
+                    "hepatitis" => "A",
+                    "hypertension" => "Yes",
+                    "others" => "Tanga"
+                ],
+
+                "familyHistory" => [
+                    "bronchialAsthma" => "No",
+                    "hypertension" => "Maybe",
+                    "tubercolosis" => "Soon",
+                    "others" => "Definitely"
+                ],
+
+                "personalAndSocialHistory" => [
+                    "smoker" => [
+                        "sticksPerDay" => "50",
+                        "packsPerYear" => "250"
+                    ],
+                    "alcoholic" => "Yes",
+                    "medications" => [
+                        "Biogesic"
+                    ]
+                ],
+
+                "hospitalizations" => "qweqwe",
+                "operations" => "asdasdasd",
+                "reviewOfSystems" => [
+                    "skin" => "qweqweqwe",
+                    "opthamologic" => "dfgdfgdfg",
+                    "cardiovascular" => "ccvbcvbcvb",
+                    "respiratory" => "rytutyuty",
+                    "hematology" => "bnmbnmbm",
+                ]
+            ]
+        );
+    }
+
+    public function fetchProfile() {
+        echo json_encode(
+            [
+                "name" => [
+                    "lastName" => "Juguilon",
+                    "firstName" => "Prince",
+                    "middleName" => "Carlo"
+                ],
+                "address" => "A0A3DR8 Paoville, Taguig City, Philippines",
+                "phoneNumber" => "09457985711",
+                "birthdate" => [
+                    "birthMonth" => 9,
+                    "birthDay" => 3,
+                    "birthYear" => 1990
+                ],
+                "age" => "18",
+                "sex" => "Male",
+                "email" => "princejoogie@gmail.com",
+                "emergencyContact" => [
+                    "name" => "Andre Tubon",
+                    "relationship" => "Driver",
+                    "phone" => "09876985711",
+                ]
+            ]
+        );
+
+        // print("<pre>");
+        // print_r(json_decode($bro));
+        // print("</pre>");
+=======
         $user = Auth::user();
         echo $user->medicalRecords;
 
@@ -200,5 +271,6 @@ class FetchController extends Controller
         //         ]
         //     ]
         // );
+>>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
     }
 }
