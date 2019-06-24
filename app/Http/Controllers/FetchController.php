@@ -114,86 +114,10 @@ class FetchController extends Controller
     }
 
     public function fetchRecords() {
-<<<<<<< HEAD
-        echo json_encode(
-            [
-                "pastMedicalHistory" => [
-                    "allergies" => [
-                        "hipon",
-                        "mefenamic acid",
-                        "viaTubon"
-                    ],
-                    "skinDisease" => "Amebiasis",
-                    "diabetes" => "B",
-                    "hepatitis" => "A",
-                    "hypertension" => "Yes",
-                    "others" => "Tanga"
-                ],
-
-                "familyHistory" => [
-                    "bronchialAsthma" => "No",
-                    "hypertension" => "Maybe",
-                    "tubercolosis" => "Soon",
-                    "others" => "Definitely"
-                ],
-
-                "personalAndSocialHistory" => [
-                    "smoker" => [
-                        "sticksPerDay" => "50",
-                        "packsPerYear" => "250"
-                    ],
-                    "alcoholic" => "Yes",
-                    "medications" => [
-                        "Biogesic"
-                    ]
-                ],
-
-                "hospitalizations" => "qweqwe",
-                "operations" => "asdasdasd",
-                "reviewOfSystems" => [
-                    "skin" => "qweqweqwe",
-                    "opthamologic" => "dfgdfgdfg",
-                    "cardiovascular" => "ccvbcvbcvb",
-                    "respiratory" => "rytutyuty",
-                    "hematology" => "bnmbnmbm",
-                ]
-            ]
-        );
-    }
-
-    public function fetchProfile() {
-        echo json_encode(
-            [
-                "name" => [
-                    "lastName" => "Juguilon",
-                    "firstName" => "Prince",
-                    "middleName" => "Carlo"
-                ],
-                "address" => "A0A3DR8 Paoville, Taguig City, Philippines",
-                "phoneNumber" => "09457985711",
-                "birthdate" => [
-                    "birthMonth" => 9,
-                    "birthDay" => 3,
-                    "birthYear" => 1990
-                ],
-                "age" => "18",
-                "sex" => "Male",
-                "email" => "princejoogie@gmail.com",
-                "emergencyContact" => [
-                    "name" => "Andre Tubon",
-                    "relationship" => "Driver",
-                    "phone" => "09876985711",
-                ]
-            ]
-        );
-
-        // print("<pre>");
-        // print_r(json_decode($bro));
-        // print("</pre>");
-=======
         $user = Auth::user();
+        // dd(json_decode($user->medicalRecords,true));
+        
         echo $user->medicalRecords;
-
         // echo json_encode(
         //     [
         //         "pastMedicalHistory" => [
@@ -250,6 +174,7 @@ class FetchController extends Controller
     public function fetchProfile() {
 
         $user = Auth::user();
+        // dd(json_decode($user->profile, true));
         echo $user->profile;
         // echo json_encode(
         //     [
@@ -271,6 +196,5 @@ class FetchController extends Controller
         //         ]
         //     ]
         // );
->>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
     }
 }

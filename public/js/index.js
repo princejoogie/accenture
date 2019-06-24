@@ -17,27 +17,66 @@ $(document).ready(
                 $("#index-menu_medicalRecords").removeClass("active");
                 $.ajax({
                     url : "/fetchProfile",
-                    beforeSend : function() {
-                        // $("#index-content").html(
-                        //    '<div class="ui active centered inline loader"></div>'
-                        // );
+                    beforeSend : function(data) {
+                        // $("#index-content").hide();
+                        // $("#index-records").hide();
+                        // $("#loading").show();
                     }
                 }).done(
                     function(data) {
                         var user = JSON.parse(data);
                         $("#index-content").show();
                         $("#index-records").hide();
+                        var date = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
+                        $("#mainName").html(user.name.firstName + " " + user.name.lastName);
+                        $("#firstName").val(user.name.firstName);
+                        $("#middleName").val(user.name.middleName);
+                        $("#lastName").val(user.name.lastName);
+                        $("#age").val(user.age);
+                        $("#bday").val(date);
+                        $("#email").val(user.email);
+                        $("#phoneNumber").val(user.phoneNumber);
+                        $("#address").val(user.address);
+                        $("#gender").val(user.sex);
 
-                        $("#name").html(user.name.firstName + " " + user.name.lastName);
-                        $("#email").html(user.email);
-                        $("#bloodType").html(user.bloodType);
-                        $("#phoneNumber").html(user.phoneNumber);
-                        document.getElementById('firstName').value = user.name.firstName;
-                        document.getElementById('middleName').value = user.name.middleName;
-                        document.getElementById('lastName').value = user.name.lastName;
-                        document.getElementById('age').value = user.age;
-                        document.getElementById('address').value = user.address;
-                        document.getElementById('datePicker').value = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
+                        var contacts = "";
+                        contacts += '<div class="item">';
+                        contacts += '<img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/small/rachel.png"' +
+                                    'style="' +
+                                        'width: 50px;' +
+                                        'height: 50px;"' +
+                                        '>';
+                        contacts += '<div class="content">';
+                        contacts += '<a class="header">'+ user.emergencyContact.name +'</a>';
+                        contacts += '<a class="header">'+ user.emergencyContact.relationship +'</a>';
+                        contacts += '<div class="description">'+ '<b>Phone: </b>' + user.emergencyContact.phone + '</div>';
+                        contacts += '</div></div>';
+                        $("#emergencyContacts").html(contacts);
+                        // <div class="ui link cards">
+                        //     <div class="card">
+                        //         <div class="image">
+                        //             <img src="https://semantic-ui.com/images/avatar2/large/matthew.png">
+                        //         </div>
+                        //     <div class="content">
+                        //         <div class="header">Matt Giampietro</div>
+                        //             <div class="meta">
+                        //             <a>Friends</a>
+                        //             </div>
+                        //         <div class="description">
+                        //         Matthew is an interior designer living in New York.
+                        //         </div>
+                        //     </div>
+                        //     <div class="extra content">
+                        //         <span class="right floated">
+                        //         Joined in 2013
+                        //         </span>
+                        //         <span>
+                        //         <i class="user icon"></i>
+                        //         75 Friends
+                        //         </span>
+                        //     </div>
+                        //     </div>
+                        // </div>
                     }
                 );
             }
@@ -100,8 +139,8 @@ $(document).ready(
                 e.preventDefault(); // will not switch page
                 $("#index-menu_medicalRecords").addClass("active");
                 $("#index-menu_profile").removeClass("active");
-                $("#startOfMedRec").show();
-                $("startOfProfile").hide();
+                $("#index-records").show();
+                $("#index-content").hide();
                 
                 $.ajax({
                     url : "/fetchRecords",
@@ -116,22 +155,42 @@ $(document).ready(
                         $("#index-records").show();
                         $("#index-content").hide();
 
+                        $("#diabetes").val(user.pastMedicalHistory.diabetes);
+                        $("#hepatitis").val(user.pastMedicalHistory.hepatitis);
+                        $("#hypertension").val(user.pastMedicalHistory.hypertension);
+                        $("#others").val(user.pastMedicalHistory.others);
+                        $("#bronchialAsthma").val(user.familyHistory.bronchialAsthma);
+                        $("#hypertension").val(user.familyHistory.hypertension);
+                        $("#tubercolosis").val(user.familyHistory.tubercolosis);
+
+
                         str = "";
                         $.each(user["pastMedicalHistory"], function(key, value) {
                             //str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
-                            console.log(key);
+                            // console.log(key);
                             if (key == "allergies") {
+                                str = "";
                                 $.each(value, function(qwe) {
                                     console.log(value[qwe]);
-                                    str += '<div class="thirteen wide field">';
+                                    str += '<div class="four wide field">';
                                     str += '<input type="text" class="two" value='+ value[qwe] +'>';
                                     str += '</div>';
                                 })
+                                $("#allergies").html(str);
                             }
-                            
+                            if (key == "skinDisease") {
+                                str = "";
+                                $.each(value, function(qwe) {
+                                    console.log(value[qwe]);
+                                    str += '<div class="four wide field">';
+                                    str += '<input type="text" class="two" value='+ value[qwe] +'>';
+                                    str += '</div>';
+                                })
+                                $("#skinDiseases").html(str);
+                            }
                         });
-                        $("#allergies").html(str);
                     }
+                    
                 );
             }
         );
@@ -141,7 +200,7 @@ $(document).ready(
         });
         
         $("#index-menu_profile").trigger("click");
-        $("#index-menu_medicalRecord").trigger("click");
+        // $("#index-menu_medicalRecord").trigger("click");
 
     }
 );   

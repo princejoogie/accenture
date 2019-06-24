@@ -2,28 +2,6 @@
 
 @section('content')
 
-<!-- <div class="ui secondary pointing menu">
-  <a class="item" id="index-menu_profile">
-    <i class="fas fa-home logosize"></i>&nbsp;Profile
-  </a>
-  <a class="item" id="index-menu_steps">
-    <i class="fas fa-comment-alt logosize"></i>&nbsp;Steps
-  </a>
-  <a class="item" id="index-menu_addsteps">
-    <i class="fas fa-users logosize"></i>&nbsp;Add Steps
-  </a>
-  <a class="item" id="index-menu_records">
-  <i class="fas fa-file-medical"></i>&nbsp;Medical Records
-  </a>
-  <div class="right menu">
-    <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search...">
-        <i class="fas fa-search logosize"></i>
-      </div>
-    </div>
-  </div>
-</div> -->
 <div class="ui grid">
   <div class="three wide column">
     <div class="ui vertical fluid tabular menu">
@@ -37,16 +15,12 @@
   </div>
   <div class="thirteen wide stretched column">
     <div class="ui segment">
+    <!-- <div id="loading" class="ui active centered inline loader"></div> -->
 
       <div id="index-content" style="display: none;">
         <!-- start of profile -->
-<<<<<<< HEAD
-        <div id="startOfProfile" class="container">
-        <div class="row profile">
-=======
         <div class="container">
           <div class="row profile">
->>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
             <div class="col-md-3">
               <div class="profile-sidebar">
                 <div class="profile-img">
@@ -56,31 +30,32 @@
                     <input type="file" name="file" />
                   </div>
                 </div>
-              <div class="profile-usertitle"> </div>
-              <div class="profile-usertitle-name" id="name"> </div>
+                <div class="profile-usertitle"> </div>
+              <div class="profile-usertitle-name" id="mainName"> </div>
             </div>
           </div>
       <div class="col-md-9">
         <div class="profile-content">
           <div class="row">
             <div class="col-md-12">
-              <h4>Basic Infomation</h4>
+            <h4 class="ui dividing header">Basic Profile Information</h4>
               <br>
             </div>
           </div>
             <table class="table table-user-information">
               <div class="ui form">
-              <h4 class="ui dividing header">Full name</h4>
+            
+              <!-- qweqweqweqwew -->
                 <div class="fields">
-                  <div class="field">
+                  <div class="five wide field">
                     <label>First name</label>
                       <input type="text" id="firstName" placeholder="First Name">
-                  </div>
-                  <div class="field">
+                    </div>
+                  <div class="five wide field">
                     <label>Middle name</label>
                       <input type="text" id="middleName" placeholder="Middle Name">
-                  </div>
-                  <div class="field">
+                    </div>
+                  <div class="five wide field">
                     <label>Last name</label>
                     <input type="text" id="lastName" placeholder="Last Name">
                   </div>
@@ -88,19 +63,73 @@
               </div>
 
               <div class="ui form">
-              <h4 class="ui dividing header">Age</h4>
                 <div class="fields">
-                  <div class="field">
+                  <div class="two wide field">
+                  <label>Age</label>
                     <input type="text" id="age" placeholder="Age">
+                  </div>
+                  <div class="four wide field">
+                    <label>Birthdate</label>
+                    <input type="text" id="bday" placeholder="mm/dd/yyyy">
+                  </div>
+                  <div class="four wide field">
+                    <label>Gender</label>
+                    <input type="text" id="gender" placeholder="Gender">
+                  </div>
+                  <div class="five wide field">
+                    <label>Phone Number</label>
+                    <input type="text" id="phoneNumber" placeholder="Phone number">
                   </div>
                 </div>
               </div>
 
               <div class="ui form">
-              <h4 class="ui dividing header">Birthdate</h4>
                 <div class="fields">
-                  <div class="field">
-                    <input type="text" id="datePicker" placeholder="mm/dd/yyyy">
+                  <div class="fifteen wide column field">
+                    <label>Address</label>
+                    <input type="text" id="address" placeholder="Address">
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui form">
+                <div class="fields">
+                  <div class="fifteen wide column field">
+                    <label>Email</label>
+                    <input type="text" id="email" placeholder="Email Address">
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui form">
+                <div class="fields">
+                  <div class="twelve wide column field">
+                    <label>Emergency Contacts</label>
+                    <!-- <input type="text" id="address" placeholder="Phone number"> -->
+                  
+                    <div class="ui list" id="emergencyContacts"
+                              style="
+                                padding: 8px;
+                                border: 1px solid #A0A0A0;
+                                border-radius: 5px;
+                                ">
+                      <!-- <div class="item">
+                        <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/small/rachel.png">
+                        <div class="content">
+                          <a class="header">Rachel</a>
+                          <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                      </div> -->
+                      <!-- <div class="item">
+                        <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/small/matthew.png">
+                        <div class="content">
+                          <a class="header">Veronika Ossi</a>
+                          <div class="description">Has not watched anything recently</div>
+                        </div>
+                      </div> -->
+                    </div>
+
+                    <!-- qwewe -->
                   </div>
                 </div>
               </div>
@@ -112,34 +141,71 @@
       </div>
     </div>
       <!-- end of profile -->
-<<<<<<< HEAD
-      <div id="index-menu_medicalRecords" style="display: none;">
-        <!-- start of medicalRecords -->
-        <form id="startOfMedRec" class="ui form">
-          <h4 class="ui dividing header">Shipping Information</h4>
-=======
       <div id="index-records" style="display: none;">
         <!-- start of medicalRecords -->
         <form class="ui form mr">
           <h4 class="ui dividing header">A. Past Medical History</h4>
->>>>>>> e3e3b78cc77116abbc0f8f06d306089bff566a77
             <div class="field">
               <label>Allergies</label>
               <div class="fields" id="allergies">
                 <!-- something here from js -->
               </div>
             </div>
-          <div class="field">
-            <label>Billing Address</label>
-            <div class="fields">
-              <div class="twelve wide field">
-                <input type="text" name="shipping[address]" placeholder="Street Address">
-              </div>
-              <div class="four wide field">
-                <input type="text" name="shipping[address-2]" placeholder="Apt #">
+            <div class="field">
+              <label>Skin Diseases</label>
+              <div class="fields" id="skinDiseases">
               </div>
             </div>
+            <div class="field">
+
+              <label>Diabetes</label>
+              <div class="fields">
+                <div class="two wide field">
+                  <input type="text" id="diabetes" placeholder="Classification">
+                </div>
+              </div>
+              
+              <label>Hepatits</label>
+              <div class="fields">
+                <div class="two wide field">
+                  <input type="text" id="hepatitis" placeholder="Classification">
+                </div>
+              </div>
+
+              <label>Hypertension</label>
+              <div class="fields">
+                <div class="two wide field">
+                  <input type="text" id="hypertension" placeholder="Classification">
+                </div>
+              </div>
+
+            </div>
+            <h4 class="ui dividing header">B. Family History</h4>
+
+            <div class="ui form">
+              <div class="fields">
+
+                <div class="three wide column field">
+                  <label>Bronchial Asthma</label>
+                  <input type="text" id="bronchialAsthma" placeholder="Status">
+                </div>
+
+                <div class="three wide column field">
+                  <label>Hypertension</label>
+                  <input type="text" id="hypertension" placeholder="Status">
+                </div>
+
+                <div class="three wide column field">
+                  <label>Tubercolosis</label>
+                  <input type="text" id="tubercolosis" placeholder="Status">
+                </div>
+
+              </div>
+            </div>
+
+            </div>
           </div>
+        </div>
         </form>
         <!-- end of medicalRecords -->
       </div>
