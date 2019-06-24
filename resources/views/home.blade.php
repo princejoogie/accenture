@@ -45,61 +45,52 @@
             <div class="col-md-3">
               <div class="profile-sidebar">
                 <div class="profile-img">
-                <img src="https://1.semantic-ui.com/images/avatar/large/elliot.jpg" alt="" />
+                <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt="" />
                   <div class="file btn btn-lg btn-primary">
                     Change Photo
                     <input type="file" name="file" />
                   </div>
                 </div>
               <div class="profile-usertitle"> </div>
-            <div class="profile-usertitle-name" id="name"> </div>
+              <div class="profile-usertitle-name" id="name"> </div>
+            </div>
           </div>
-        </div>
       <div class="col-md-9">
         <div class="profile-content">
           <div class="row">
             <div class="col-md-12">
-              <h4>Your Profile</h4>
+              <h4>Basic Infomation</h4>
               <br>
             </div>
           </div>
             <table class="table table-user-information">
-            <tbody>
-                <tr>
-                <td>Allergy:</td>
-                <td>None</td>
-                </tr>
-                <tr>
-                <td>Blood Type:</td>
-                <td>O+</td>
-                </tr>
-                <tr>
-                <td>Date of Birth</td>
-                <td>03/11/2009</td>
-                </tr>
-                <tr>
-                <tr>
-                <td>Gender</td>
-                <td>Male</td>
-                </tr>
-                <tr>
-                <td>Home Address</td>
-                <td>Makati City</td>
-                </tr>
-                <tr>
-                <td>Email</td>
-                <td id="email">
-                </td>
-                </tr>
-                <tr>
-                <td>Phone Number</td>
-                <td>237-4567-890(Landline)</td>
-                </tr>
-                <tr>
-                <td>Occupation</td>
-                <td>Chemist</td>
-                </tr>
-            </tbody>
+              <div class="ui form">
+              <h4 class="ui dividing header">Full name</h4>
+                <div class="fields">
+                  <div class="field">
+                    <label>First name</label>
+                      <input type="text" id="firstName" placeholder="First Name">
+                  </div>
+                  <div class="field">
+                    <label>Middle name</label>
+                      <input type="text" id="middleName" placeholder="Middle Name">
+                  </div>
+                  <div class="field">
+                    <label>Last name</label>
+                    <input type="text" id="lastName" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="ui form" style="clear: both">
+                <h4 class="ui form header dividing h4">Birthdate</h4>
+                <h4 class="ui form header h3">Birthdate</h4>
+                  <div class="ui calendar" id="calendar">
+                    <div class="ui input left icon field">
+                      <i class="calendar icon"></i>
+                      <input type="date" id="datePicker">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </table>
             </div>
           </div>

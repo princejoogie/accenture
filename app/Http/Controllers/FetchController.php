@@ -178,27 +178,27 @@ class FetchController extends Controller
 
     public function fetchProfile() {
 
-        // $user = Auth::user();
-        // echo $user->profile;
-        echo json_encode(
-            [
-                "name" => [
-                    "lastName" => "Dela Cruz",
-                    "firstName" => "Juan",
-                    "middleName" => "Manda"
-                ],
-                "address" => "123 Anywhere St., ",
-                "phoneNumber" => "09082279309",
-                "birthdate" => "June 29 1999",
-                "age" => "20",
-                "sex" => "Male",
-                "email" => "juan@gmail.com",
-                "emergencyContact" => [
-                    "name" => "Maria",
-                    "relationship" => "Mother",
-                    "phone" => "09082279308",
-                ]
-            ]
-        );
+        $user = Auth::user();
+        echo $user->profile;
+        // echo json_encode(
+        //     [
+        //         "name" => [
+        //             "lastName" => "Dela Cruz",
+        //             "firstName" => "Juan",
+        //             "middleName" => "Manda"
+        //         ],
+        //         "address" => "123 Anywhere St., ",
+        //         "phoneNumber" => "09082279309",
+        //         "birthdate" => "June 29 1999",
+        //         "age" => "20",
+        //         "sex" => "Male",
+        //         "email" => "juan@gmail.com",
+        //         "emergencyContact" => [
+        //             "name" => "Maria",
+        //             "relationship" => "Mother",
+        //             "phone" => "09082279308",
+        //         ]
+        //     ]
+        // );
     }
 }

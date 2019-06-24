@@ -16,7 +16,7 @@ $(document).ready(
                 $("#index-menu_profile").addClass("active");
                 $("#index-menu_medicalRecords").removeClass("active");
                 $.ajax({
-                    url : "/fetchData",
+                    url : "/fetchProfile",
                     beforeSend : function() {
                         // $("#index-content").html(
                         //    '<div class="ui active centered inline loader"></div>'
@@ -28,9 +28,15 @@ $(document).ready(
                         $("#index-content").show();
                         $("#index-records").hide();
 
-                        $("#name").html(user.name);
+                        $("#name").html(user.name.firstName + " " + user.name.lastName);
                         $("#email").html(user.email);
-
+                        $("#bloodType").html(user.bloodType);
+                        $("#phoneNumber").html(user.phoneNumber);
+                        // $("#firstName").html(user.name[1]);
+                        document.getElementById('firstName').value = user.name.firstName;
+                        document.getElementById('middleName').value = user.name.middleName;
+                        document.getElementById('lastName').value = user.name.lastName;
+                        document.getElementById('datePicker').valueAsDate = new Date(user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear);
                     }
                 );
             }
@@ -118,7 +124,7 @@ $(document).ready(
                                     str += '</div>';
                                 })
                             }
-                            $("#allergies").html(str);
+                            
                         });
 
                         
@@ -133,5 +139,7 @@ $(document).ready(
         
         $("#index-menu_profile").trigger("click");
         $("#index-menu_medicalRecord").trigger("click");
+
+        $('#calendar').calendar();
     }
 );   
