@@ -104,6 +104,7 @@ nav ul li a {
     margin: 0 3rem;
     position: relative;
     letter-spacing: 2px;
+    text-decoration: none;
 }
 
 nav ul li a:last-child {

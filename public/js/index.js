@@ -9,12 +9,20 @@ $(document).ready(
             }
         );
 
+        $('.index-records').css(
+            {
+                "overflow-y" : "auto",
+                "height" :(height - 140) + 'px'
+            }
+        );
+
         $("#index-menu_profile").on("click",
             function(e) {
                 //debugger;
                 e.preventDefault(); // will not switch page
                 $("#index-menu_profile").addClass("active");
                 $("#index-menu_medicalRecords").removeClass("active");
+                $("#index-menu_steps").removeClass("active");
                 $.ajax({
                     url : "/fetchProfile",
                     beforeSend : function(data) {
@@ -27,6 +35,7 @@ $(document).ready(
                         var user = JSON.parse(data);
                         $("#index-content").show();
                         $("#index-records").hide();
+                        $("#index-steps").hide();
                         var date = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
                         $("#mainName").html(user.name.firstName + " " + user.name.lastName);
                         $("#firstName").val(user.name.firstName);
@@ -50,8 +59,10 @@ $(document).ready(
                         contacts += '<a class="header">'+ user.emergencyContact.name +'</a>';
                         contacts += '<a class="header">'+ user.emergencyContact.relationship +'</a>';
                         contacts += '<div class="description">'+ '<b>Phone: </b>' + user.emergencyContact.phone + '</div>';
-                        contacts += '</div></div>';
+                        // contacts += '</div></div>';
                         $("#emergencyContacts").html(contacts);
+
+                        
                         // <div class="ui link cards">
                         //     <div class="card">
                         //         <div class="image">
@@ -139,8 +150,10 @@ $(document).ready(
                 e.preventDefault(); // will not switch page
                 $("#index-menu_medicalRecords").addClass("active");
                 $("#index-menu_profile").removeClass("active");
+                $("#index-menu_steps").removeClass("active");
                 $("#index-records").show();
                 $("#index-content").hide();
+                $("#index-steps").hide();
                 
                 $.ajax({
                     url : "/fetchRecords",
@@ -154,6 +167,7 @@ $(document).ready(
                         var user = JSON.parse(data);
                         $("#index-records").show();
                         $("#index-content").hide();
+                        $("#index-steps").hide();
 
                         $("#diabetes").val(user.pastMedicalHistory.diabetes);
                         $("#hepatitis").val(user.pastMedicalHistory.hepatitis);
@@ -162,12 +176,13 @@ $(document).ready(
                         $("#bronchialAsthma").val(user.familyHistory.bronchialAsthma);
                         $("#hypertension").val(user.familyHistory.hypertension);
                         $("#tubercolosis").val(user.familyHistory.tubercolosis);
+                        $("#others").val(user.familyHistory.others);
 
 
                         str = "";
                         $.each(user["pastMedicalHistory"], function(key, value) {
-                            //str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
-                            // console.log(key);
+                            str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
+                            console.log(key);
                             if (key == "allergies") {
                                 str = "";
                                 $.each(value, function(qwe) {
@@ -195,6 +210,35 @@ $(document).ready(
             }
         );
 
+        $("#index-menu_steps").on("click",
+            function(e) {
+                e.preventDefault(); // will not switch page
+                $("#index-menu_steps").addClass("active");
+                $("#index-menu_profile").removeClass("active");
+                $("#index-menu_medicalRecords").removeClass("active");
+                $("#index-steps").show();
+                $("#index-records").hide();
+                $("#index-content").hide();
+                
+                $.ajax({
+                    // url : "/fetchRecords",
+                    beforeSend : function() {
+                        // $("#index-content").html(
+                        //     '<div class="ui active centered inline loader"></div>'
+                        // );
+                    }
+                }).done(
+                    function(data) {
+                        var user = JSON.parse(data);
+                        $("#index-steps").show();
+                        $("#index-records").hide();
+                        $("#index-content").hide();
+                    }
+                    
+                );
+            }
+        );
+
         $('#navbarDropdown').on('click', function() {
             $('#logoutDrop').toggle();
         });
@@ -202,5 +246,6 @@ $(document).ready(
         $("#index-menu_profile").trigger("click");
         // $("#index-menu_medicalRecord").trigger("click");
 
+        
     }
 );   

@@ -2,6 +2,45 @@
 
 @section('content')
 
+<script>
+function _(id){
+   return document.getElementById(id);	
+}
+var droppedIn = false;
+function drag_start(event) {
+    _('app_status').innerHTML = "Dragging the "+event.target.getAttribute('id');
+    event.dataTransfer.dropEffect = "move";
+    event.dataTransfer.setData("text", event.target.getAttribute('id') );
+}
+function drag_enter(event) {
+    _('app_status').innerHTML = "You are dragging over the "+event.target.getAttribute('id');
+}
+function drag_leave(event) {
+    _('app_status').innerHTML = "You left the "+event.target.getAttribute('id');
+}
+function drag_drop(event) {
+    event.preventDefault(); /* Prevent undesirable default behavior while dropping */
+    var elem_id = event.dataTransfer.getData("text");
+    event.target.appendChild( _(elem_id) );
+    _('app_status').innerHTML = "Dropped "+elem_id+" into the "+event.target.getAttribute('id');
+    _(elem_id).removeAttribute("draggable");
+    _(elem_id).style.cursor = "default";
+    droppedIn = true;
+}
+function drag_end(event) {
+    if(droppedIn == false){
+        _('app_status').innerHTML = "You let the "+event.target.getAttribute('id')+" go.";
+    }
+	droppedIn = false;
+}
+function readDropZone(){
+    for(var i=0; i < _("drop_zone").children.length; i++){
+        alert(_("drop_zone").children[i].id+" is in the drop zone");
+    }
+    /* Run Ajax request to pass any data to your server */
+}
+</script>
+
 <div class="ui grid">
   <div class="three wide column">
     <div class="ui vertical fluid tabular menu">
@@ -11,11 +50,95 @@
       <a class="item" id="index-menu_medicalRecords">
         Medical Records
       </a>
+      <a class="item" id="index-menu_steps">
+        Steps
+      </a>
     </div>
   </div>
   <div class="thirteen wide stretched column">
     <div class="ui segment">
     <!-- <div id="loading" class="ui active centered inline loader"></div> -->
+
+      <div id="index-steps" style="display: none;">
+      <h2 id="app_status" style="display: none;">App status...</h2>
+          <h1 class="title-steps">Steps</h1>
+        
+          
+          <div class="ui vertical steps" id="drop_zone" ondragenter="drag_enter(event)" ondrop="drag_drop(event)" ondragover="return false" ondragleave="drag_leave(event)" >
+          </div>
+          <div class="departments">
+            <!-- first option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object1" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">Cardiology</div>
+                  <div class="description">Check of hypertension status</div>
+                </div>
+              </div>
+            </div>
+            <!-- second option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object2" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">Check-Up</div>
+                  <div class="description">Check-up for the office requirement</div>
+                </div>
+              </div>
+            </div>
+            <!-- third option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object3" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">Dental</div>
+                  <div class="description">Removing of impacted tooth</div>
+                </div>
+              </div>
+            </div>
+            <!-- fourth option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object4" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">Optalmology</div>
+                  <div class="description">Annual eye check-up</div>
+                </div>
+              </div>
+            </div>
+            <!-- fifth option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object5" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">X-Ray</div>
+                  <div class="description">X-Ray for dental operation</div>
+                </div>
+              </div>
+            </div>
+            <!-- sixth option -->
+            <div class="ui vertical steps">
+              <div class="completed step" id="object6" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                <i class="truck icon"></i>
+                <div class="content">
+                  <div class="title">Payment</div>
+                  <div class="description">Payment of bill statement</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div id="object2" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+              <div class="steps">Cardiology</div>
+            </div>
+            <div id="object3" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+              <div class="steps">Cardiology</div>
+            </div>
+            <div id="object4" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+              <div class="steps">Cardiology</div> -->
+           <!-- </div> -->
+          </div>
+        </div>
 
       <div id="index-content" style="display: none;">
         <!-- start of profile -->
@@ -171,6 +294,20 @@
                   <input type="text" id="hepatitis" placeholder="Classification">
                 </div>
               </div>
+              
+              <label>Hepatits</label>
+              <div class="fields">
+                <div class="two wide field">
+                  <input type="text" id="hepatitis" placeholder="Classification">
+                </div>
+              </div>
+              
+              <label>Hepatits</label>
+              <div class="fields">
+                <div class="two wide field">
+                  <input type="text" id="hepatitis" placeholder="Classification">
+                </div>
+              </div>
 
               <label>Hypertension</label>
               <div class="fields">
@@ -200,6 +337,11 @@
                   <input type="text" id="tubercolosis" placeholder="Status">
                 </div>
 
+                <div class="seven wide column field">
+                  <label>Others</label>
+                  <input type="text" id="others" placeholder="Others">
+                </div>
+
               </div>
             </div>
 
@@ -210,7 +352,7 @@
         <!-- end of medicalRecords -->
       </div>
     </div>
-  </div>
+  </div>  
 </div>
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 

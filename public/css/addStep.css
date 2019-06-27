@@ -131,3 +131,34 @@ table>tbody>tr:hover{
 .profile-usertitle-name {
     text-align: center;
 }
+
+.title_steps {
+    text-align: center;
+}
+
+#drop_zone {
+    background-color: #EEE; 
+    border: #999 1px solid;
+    width: 49%; 
+    height: 450px;
+    padding: 2px;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.departments {
+    background-color: #EEE; 
+    border: #999 1px solid;
+    width: 49%; 
+    height: 450px;
+    padding: 2px;
+    font-size: 18px;
+    margin-top: 0;
+    margin-left: 0;
+    display: inline-block;
+}
+
+.title-steps {
+    font-size: 1.2rem;
+    margin-top: auto;
+}
