@@ -220,24 +220,39 @@ $(document).ready(
                 $("#index-records").hide();
                 $("#index-content").hide();
                 
-                $.ajax({
-                    // url : "/fetchRecords",
-                    beforeSend : function() {
-                        // $("#index-content").html(
-                        //     '<div class="ui active centered inline loader"></div>'
-                        // );
-                    }
-                }).done(
-                    function(data) {
-                        var user = JSON.parse(data);
-                        $("#index-steps").show();
-                        $("#index-records").hide();
-                        $("#index-content").hide();
-                    }
+                // $.ajax({
+                //     // url : "/fetchRecords",
+                //     beforeSend : function() {
+                //         // $("#index-content").html(
+                //         //     '<div class="ui active centered inline loader"></div>'
+                //         // );
+                //     }
+                // }).done(
+                //     function(data) {
+                //         var user = JSON.parse(data);
+                //         $("#index-steps").show();
+                //         $("#index-records").hide();
+                //         $("#index-content").hide();
+                //     }
                     
-                );
+                // );
+
+                
             }
         );
+
+        $(".grid_item").draggable({helper: "clone"});
+
+        $("#drop_zonee").droppable(
+            {
+                accept:".grid_item",
+                drop: function(ev, ui) {
+                    var droppedItem = $(ui.draggable).clone();
+                    droppedItem.addClass(" grid_item");
+                    $("#drop_zonee").find("#drop_here").append(droppedItem);
+                }
+            }
+        )
 
         $('#navbarDropdown').on('click', function() {
             $('#logoutDrop').toggle();
