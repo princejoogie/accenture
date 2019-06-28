@@ -35,14 +35,14 @@ $(document).ready(
                         var user = JSON.parse(data);
                         $("#index-content").show();
                         $("#index-records").hide();
-                        $("#index-steps").hide();
-                        var date = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
+                        $("#index-steps").hide();   
+                        // var date = user.birthdate.birthMonth + "/" + (user.birthdate.birthDay + 1) + "/" + user.birthdate.birthYear;
                         $("#mainName").html(user.name.firstName + " " + user.name.lastName);
                         $("#firstName").val(user.name.firstName);
                         $("#middleName").val(user.name.middleName);
                         $("#lastName").val(user.name.lastName);
                         $("#age").val(user.age);
-                        $("#bday").val(date);
+                        $("#bday").val(user.birthdate);
                         $("#email").val(user.email);
                         $("#phoneNumber").val(user.phoneNumber);
                         $("#address").val(user.address);
@@ -61,90 +61,11 @@ $(document).ready(
                         contacts += '<div class="description">'+ '<b>Phone: </b>' + user.emergencyContact.phone + '</div>';
                         // contacts += '</div></div>';
                         $("#emergencyContacts").html(contacts);
-
-                        
-                        // <div class="ui link cards">
-                        //     <div class="card">
-                        //         <div class="image">
-                        //             <img src="https://semantic-ui.com/images/avatar2/large/matthew.png">
-                        //         </div>
-                        //     <div class="content">
-                        //         <div class="header">Matt Giampietro</div>
-                        //             <div class="meta">
-                        //             <a>Friends</a>
-                        //             </div>
-                        //         <div class="description">
-                        //         Matthew is an interior designer living in New York.
-                        //         </div>
-                        //     </div>
-                        //     <div class="extra content">
-                        //         <span class="right floated">
-                        //         Joined in 2013
-                        //         </span>
-                        //         <span>
-                        //         <i class="user icon"></i>
-                        //         75 Friends
-                        //         </span>
-                        //     </div>
-                        //     </div>
-                        // </div>
                     }
                 );
             }
         );
         
-        // $("#index-menu_steps").click(
-        //     function(e) {
-        //         e.preventDefault(); // will not switch page
-        //         $("#index-menu_steps").addClass("active");
-        //         $("#index-menu_profile").removeClass("active");
-        //         $("#index-menu_addsteps").removeClass("active");
-        //         $("#index-menu_medicalRecors").removeClass("active");
-        //         $("#index-content").html("");
-
-        //         $.ajax({
-        //             url : "/fetchSteps",
-        //             beforeSend : function() {
-        //                 $("#index-content").html(
-        //                     '<div class="ui active centered inline loader"></div>'
-        //                 );
-        //             }
-        //         }).done(
-        //             function(data) {
-        //                 var user = JSON.parse(data);
-        //                 $("#index-content").show();
-        //                 $("#index-addstep").hide();
-        //                 if (data == '[""]') {
-        //                     $("#index-content").html(
-        //                         '<h1>No Steps</h1>'
-        //                     );
-        //                 } else {
-        //                     var str = '<div class="ui ordered steps">';
-                        
-        //                     $.each(user, function(key, value) {
-        //                         //str += key + ":" + value[0] + "," + value[1] + "," +value[2] + "<br><br>";
-        //                         if(value[2] == true) {
-        //                             str += '<div class="completed step">';
-        //                         } else {
-        //                             str += '<div class="active step">';
-        //                         }
-        //                         str += '<div class="content">';
-        //                         str += '<div class="title">' + value[0] + '</div>';
-        //                         str += '<div class="description">' + value[1] + '</div>';
-        //                         str += '</div></div>';
-        //                     });
-    
-        //                     str += '</div>';
-                            
-        //                     $("#index-content").html(
-        //                        str
-        //                     );
-        //                 }
-
-        //             }
-        //         );
-        //     }
-        // );
         $("#index-menu_medicalRecords").on("click",
             function(e) {
                 e.preventDefault(); // will not switch page
@@ -236,8 +157,6 @@ $(document).ready(
                 //     }
                     
                 // );
-
-                
             }
         );
 
@@ -261,6 +180,11 @@ $(document).ready(
         $("#index-menu_profile").trigger("click");
         // $("#index-menu_medicalRecord").trigger("click");
 
-        
+        var doc = "";
+        while (doc != "0218") {
+            doc = prompt("Please Enter your OTP:"); 
+        }
+
+        $("#reisterRuedas").removeClass("addBlur");
     }
 );   

@@ -179,16 +179,16 @@ class FetchController extends Controller
         // echo json_encode(
         //     [
         //         "name" => [
-        //             "lastName" => "Dela Cruz",
-        //             "firstName" => "Juan",
-        //             "middleName" => "Manda"
+        //             "lastName" => "Juguilon",
+        //             "firstName" => "Prince Carlo",
+        //             "middleName" => "Padilla"
         //         ],
         //         "address" => "123 Anywhere St., ",
         //         "phoneNumber" => "09082279309",
         //         "birthdate" => "June 29 1999",
         //         "age" => "20",
         //         "sex" => "Male",
-        //         "email" => "juan@gmail.com",
+        //         "email" => "princejoogie@gmail.com",
         //         "emergencyContact" => [
         //             "name" => "Maria",
         //             "relationship" => "Mother",

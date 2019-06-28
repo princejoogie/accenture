@@ -7,18 +7,18 @@
     display: grid;
     grid-template-columns: auto auto;
     background-color: #3e2723;
-    padding: 2px;
+    padding: 1px;
     border-radius: 5px;
   }
 
   .brooo {
-    overflow: auto;
+    overflow: 300px;
     width: 320px;
   }
 
   .grid_items {
     background-color: #FFFFFF;
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     padding: 10px;
     font-size: 30px;
     text-align: center;
@@ -33,7 +33,13 @@
   }
 </style>
 
-<div class="ui grid">
+<style>
+  .addBlur {
+      filter: blur(4px);
+  }
+</style>
+
+<div class="ui grid addBlur" id="reisterRuedas">
   <div class="three wide column">
     <div class="ui vertical fluid tabular menu">
       <a class="item" id="index-menu_profile">
