@@ -181,7 +181,7 @@ $(document).ready(
         // $("#index-menu_medicalRecord").trigger("click");
 
         var doc = "";
-        while (doc != "0218") {
+        while (doc != "0281") {
             doc = prompt("Please Enter your OTP:"); 
         }
 
